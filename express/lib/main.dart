@@ -13,7 +13,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: Text('hellooo Estate Xpress', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+          child: Text(
+            'hellooo Estate Xpress',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 255, 25, 0),
+            ),
+          ),
         ),
       ),
     );
