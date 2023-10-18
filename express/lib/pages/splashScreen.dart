@@ -14,11 +14,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => const HomeScreen())));
-  }
+  //   Timer(
+  //       const Duration(seconds: 3),
+  //       () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+  //           builder: (BuildContext context) => const HomeScreen())));
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Color.fromARGB(255, 0, 140, 255),
       body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             height: 100,
@@ -35,7 +35,8 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           const Text(
             'Welcom to Express',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ],
       )),
