@@ -16,8 +16,8 @@ class Material_Button extends StatelessWidget {
       child: InkWell(
         onTap: onpress,
         child: Container(
-          height: 53,
-          width: 322,
+          height: 45.dp,
+          width: double.infinity,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8), color: bakground),
           child: Center(
