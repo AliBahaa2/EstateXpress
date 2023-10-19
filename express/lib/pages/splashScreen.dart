@@ -1,6 +1,7 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
+import '../components/material_Button.dart';
 import 'homeScreen.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,32 +15,102 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-  //   Timer(
-  //       const Duration(seconds: 3),
-  //       () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-  //           builder: (BuildContext context) => const HomeScreen())));
-   }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 140, 255),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
         children: [
-          Container(
-            height: 100,
-            width: 100,
-            child: Image.asset('lib/assets/images/splashLogo.png'),
+          //الصورة الي بالخلفية
+          const SizedBox(
+            height: double.infinity,
+            width: double.infinity,
+            child: Image(
+              image: AssetImage('lib/assets/images/background2.jpg'),
+              fit: BoxFit.cover,
+            ),
           ),
-          const Text(
-            'Welcom to Express',
-            style: TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+          Container(
+            color: const Color.fromARGB(255, 25, 62, 122).withOpacity(0.5),
+            child: Center(
+              child: Column(
+                children: [
+                  const Spacer(),
+                  //اللوكو وكلمة اهلا بك الي بالواجهة الاولى
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 28.h,
+                        width: 20.w,
+                        child: Image.asset('lib/assets/images/splashLogo.png'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 4.h),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'اهلا بك في',
+                              style: TextStyle(
+                                  fontFamily: 'Tajawal',
+                                  fontSize: 25.dp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            Text(
+                              'Express',
+                              style: TextStyle(
+                                  fontFamily: 'Tajawal',
+                                  fontSize: 35.dp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  //العبارة التوضيحية جوة الشاشة بأول صفحة
+                  Padding(
+                    padding:
+                        EdgeInsets.only(bottom: 8.h, left: 10.w, right: 10.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              'يتيح لك هذا التطبيق بيع وشراء وتأجير كافة الممتلكات العقارية بكل سهولة.',
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'tajawal',
+                                  fontSize: 16.dp),
+                            ),
+                            SizedBox(height: 5.h,),
+                            Material_Button(
+                              name: 'الدخول',
+                              onpress: () => Navigator.of(context)
+                                  .pushReplacement(MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const HomeScreen())),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
         ],
-      )),
+      ),
     );
   }
 }

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 
-// ignore: must_be_immutable
-class Button extends StatelessWidget {
+// ignore: camel_case_types
+class Material_Button extends StatelessWidget {
   // const Button({super.key});
-  String name;
-  VoidCallback onpress;
-  Color bakground = Colors.blueAccent;
-  // Color colors = Colors.white;
-  Button({required this.name, required this.onpress});
+  final String name;
+  final VoidCallback onpress;
+  final Color bakground = Colors.blueAccent;
+  final Color colors = Colors.white;
+  const Material_Button({required this.name, required this.onpress});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,14 +16,14 @@ class Button extends StatelessWidget {
       child: InkWell(
         onTap: onpress,
         child: Container(
-          height: 53,
-          width: 322,
+          height: 45.dp,
+          width: double.infinity,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8), color: bakground),
           child: Center(
               child: Text(
             name,
-            // style: TextStyle(color:colors),
+            style: TextStyle(color:colors, fontFamily: 'tajawal', fontSize: 20.dp, fontWeight: FontWeight.bold),
           )),
         ),
       ),
