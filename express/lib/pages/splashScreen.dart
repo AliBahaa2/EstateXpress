@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'homeScreen.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,10 +16,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 4),
-        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => const HomeScreen())));
+    //عداد ظهور الشاشة الاولى
+    // Timer(
+    //   const Duration(seconds: 5),
+    //   () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+    //       builder: (BuildContext context) => const HomeScreen())),
+    // );
   }
 
   @override
@@ -26,11 +29,12 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Stack(
         children: [
+          //الصورة الي بالخلفية
           const SizedBox(
             height: double.infinity,
             width: double.infinity,
             child: Image(
-              image: AssetImage('lib/assets/images/background.jpg'),
+              image: AssetImage('lib/assets/images/background2.jpg'),
               fit: BoxFit.cover,
             ),
           ),
@@ -39,80 +43,59 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Center(
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 350,
-                  ),
-                  Animate(
-                    effects: [FadeEffect(), Effect()],
-
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: 132,
-                          width: 132,
-                          child: Image.asset('lib/assets/images/splashLogo.png'),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 40),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'اهلا بك في',
-                                style: TextStyle(
-                                    fontFamily: 'Tajawal',
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              ),
-                              Text(
-                                'Express',
-                                style: TextStyle(
-                                    fontFamily: 'Tajawal',
-                                    fontSize: 35,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                   const Spacer(),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 80),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
+                  //اللوكو وكلمة اهلا بك الي بالواجهة الاولى
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 28.h,
+                        width: 28.w,
+                        child: Image.asset('lib/assets/images/splashLogo.png'),
+                      ),
+                       Padding(
+                        padding: EdgeInsets.only(top: 4.h),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'يتيح لك هذا التطبيق بيع وشراء وتأجير كافة الممتلكات ' ,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
+                              'اهلا بك في',
                               style: TextStyle(
-                                
-                                color: Colors.white,
-                                fontFamily: 'tajawal',
-                                fontSize: 16
-                              ),
+                                  fontFamily: 'Tajawal',
+                                  fontSize: 25.dp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
                             ),
                             Text(
-                              ' .العقارية بكل سهولة' ,
-
+                              'Express',
                               style: TextStyle(
-                                
-                                color: Colors.white,
-                                fontFamily: 'tajawal',
-                                fontSize: 16
-                              ),
+                                  fontFamily: 'Tajawal',
+                                  fontSize: 35.dp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
                             ),
                           ],
                         ),
-
-                        
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  //العبارة التوضيحية جوة الشاشة بأول صفحة
+                   Padding(
+                    padding: EdgeInsets.only(bottom: 8.h, left: 10.w, right: 10.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'يتيح لك هذا التطبيق بيع وشراء وتأجير كافة الممتلكات العقارية بكل سهولة.',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          textDirection: TextDirection.rtl,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'tajawal',
+                              fontSize: 16.dp),
+                        ),
                       ],
                     ),
                   )
