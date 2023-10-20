@@ -1,5 +1,8 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import '../components/material_Button.dart';
 import 'homeScreen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,11 +17,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-  //   Timer(
-  //       const Duration(seconds: 3),
-  //       () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-  //           builder: (BuildContext context) => const HomeScreen())));
-   }
+    Timer(
+        const Duration(seconds: 4),
+        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (BuildContext context) => const HomeScreen())));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +29,16 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Color.fromARGB(255, 0, 140, 255),
       body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(
+            height: double.infinity,
+            width: double.infinity,
+            child: Image(
+              image: AssetImage('lib/assets/images/background.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
           Container(
             height: 100,
             width: 100,
@@ -35,8 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           const Text(
             'Welcom to Express',
-            style: TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ],
       )),
