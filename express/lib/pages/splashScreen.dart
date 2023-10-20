@@ -1,6 +1,8 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import '../components/material_Button.dart';
 import 'homeScreen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -44,14 +46,14 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   Animate(
                     effects: [FadeEffect(), Effect()],
-
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
                           height: 132,
                           width: 132,
-                          child: Image.asset('lib/assets/images/splashLogo.png'),
+                          child:
+                              Image.asset('lib/assets/images/splashLogo.png'),
                         ),
                         const Padding(
                           padding: EdgeInsets.only(top: 40),
@@ -89,33 +91,37 @@ class _SplashScreenState extends State<SplashScreen> {
                         Column(
                           children: [
                             Text(
-                              'يتيح لك هذا التطبيق بيع وشراء وتأجير كافة الممتلكات ' ,
+                              'يتيح لك هذا التطبيق بيع وشراء وتأجير كافة الممتلكات ',
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
                               style: TextStyle(
-                                
-                                color: Colors.white,
-                                fontFamily: 'tajawal',
-                                fontSize: 16
-                              ),
+                                  color: Colors.white,
+                                  fontFamily: 'tajawal',
+                                  fontSize: 16),
                             ),
                             Text(
-                              ' .العقارية بكل سهولة' ,
-
+                              ' .العقارية بكل سهولة',
                               style: TextStyle(
-                                
-                                color: Colors.white,
-                                fontFamily: 'tajawal',
-                                fontSize: 16
-                              ),
+                                  color: Colors.white,
+                                  fontFamily: 'tajawal',
+                                  fontSize: 16),
                             ),
                           ],
                         ),
-
-                        
                       ],
                     ),
-                  )
+                  ),
+                  // Container(
+                  //     child: Column(
+                  //   mainAxisSize: MainAxisSize.max,
+                  //   children: [
+                  //     Button(
+                  //         name: 'login',
+                  //         onpress: () {
+                  //           print('object');
+                  //         })
+                  //   ],
+                  // )),
                 ],
               ),
             ),
