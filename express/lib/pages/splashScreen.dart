@@ -28,9 +28,11 @@ class _SplashScreenState extends State<SplashScreen> {
             width: double.infinity,
             child: Image(
               image: AssetImage('lib/assets/images/background2.jpg'),
+              //يملي الصورة على طول الشاشة ويحافظ على الابعاد
               fit: BoxFit.cover,
             ),
           ),
+         
           Container(
             color: const Color.fromARGB(255, 25, 62, 122).withOpacity(0.5),
             child: Center(
