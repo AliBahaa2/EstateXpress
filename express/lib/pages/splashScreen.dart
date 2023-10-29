@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../components/material_Button.dart';
-import 'homeScreen.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+
+import 'login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -32,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
               fit: BoxFit.cover,
             ),
           ),
-         
+
           Container(
             color: const Color.fromARGB(255, 25, 62, 122).withOpacity(0.5),
             child: Center(
@@ -87,20 +88,26 @@ class _SplashScreenState extends State<SplashScreen> {
                             Text(
                               'يتيح لك هذا التطبيق بيع وشراء وتأجير كافة الممتلكات العقارية بكل سهولة.',
                               overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.center,
                               maxLines: 2,
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'tajawal',
-                                  fontSize: 16.dp),
+                                color: Colors.white,
+                                fontFamily: 'tajawal',
+                                fontSize: 16.dp,
+                              ),
                             ),
-                            SizedBox(height: 5.h,),
+                            SizedBox(
+                              height: 3.h,
+                            ),
                             Material_Button(
                               name: 'الدخول',
-                              onpress: () => Navigator.of(context)
-                                  .pushReplacement(MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          const HomeScreen())),
+                              onpress: () =>
+                                  Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        const LoginScreen()),
+                              ),
                             ),
                           ],
                         ),

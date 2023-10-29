@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
-// import '../components/material_Button.dart';
-// import 'homeScreen.dart';
-// import 'package:flutter_sizer/flutter_sizer.dart';
+//import '../components/material_Button.dart';
+//import 'package:flutter_sizer/flutter_sizer.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _SplashScreenState createState() => _SplashScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _SplashScreenState extends State<SignUpScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +22,15 @@ class _SplashScreenState extends State<SignUpScreen> {
             width: double.infinity,
             child: Image(
               image: AssetImage('lib/assets/images/background2.jpg'),
+              //يملي الصورة على طول الشاشة ويحافظ على الابعاد
               fit: BoxFit.cover,
+            ),
+          ),
+         
+          Container(
+            color: const Color.fromARGB(255, 25, 62, 122).withOpacity(0.5),
+            child: const Center(
+              child: Text('ali'),
             ),
           ),
         ],

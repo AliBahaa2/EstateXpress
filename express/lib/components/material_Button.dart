@@ -6,7 +6,7 @@ class Material_Button extends StatelessWidget {
   // const Button({super.key});
   final String name;
   final VoidCallback onpress;
-  final Color bakground = Colors.blueAccent;
+  final Color bakground = const Color.fromARGB(255, 7, 165, 249);
   final Color colors = Colors.white;
   const Material_Button({required this.name, required this.onpress});
   @override
