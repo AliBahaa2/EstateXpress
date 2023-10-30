@@ -1,6 +1,11 @@
+import 'package:express/widgets/navbarScreens/navBarFavoret.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+
+import 'navbarScreens/navBarHome.dart';
+import 'navbarScreens/navBarSearch.dart';
+import 'navbarScreens/navBarSitting.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -12,25 +17,12 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
+
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'الرئيسية',
-      style: optionStyle,
-    ),
-    Text(
-      'المفضلة',
-      style: optionStyle,
-    ),
-    Text(
-      'البحث',
-      style: optionStyle,
-    ),
-    Text(
-      'الإعدادات',
-      style: optionStyle,
-    ),
+    NavBarHome(),
+    NavBarFavoret(),
+    NavBarSearch(),
+    NavBarSetting(),
   ];
 
   @override
