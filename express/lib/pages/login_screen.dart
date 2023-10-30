@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               onPressed: () => Navigator.of(context)
                                   .pushReplacement(MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          const SignupScreen())),
+                                          const SignUpScreen())),
                               child: Text(
                                 'انشاء حساب',
                                 style: TextStyle(
