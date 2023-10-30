@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../components/material_Button.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'signup_screen.dart';
+import 'package:express/pages/homeScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -82,7 +83,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         //زر تسجيل الدخول
                         Material_Button(
                           name: 'تسجيل الدخول',
-                          onpress: () {},
+                          onpress: () => Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const HomeScreen())),
                         ),
                         SizedBox(height: 1.h),
                         //الا تمتلك حساب؟ انشاء حساب
@@ -102,12 +106,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               onPressed: () => Navigator.of(context)
                                   .pushReplacement(MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          const SignupScreen())),
+                                          const SignUpScreen())),
                               child: Text(
                                 'انشاء حساب',
                                 style: TextStyle(
-                                    color:
-                                        Color.fromARGB(255, 0, 151, 233),
+                                    color: Color.fromARGB(255, 0, 151, 233),
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15.dp,
                                     fontFamily: 'tajawal'),
