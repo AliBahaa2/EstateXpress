@@ -19,12 +19,12 @@ class _SplashScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Stack(
         children: [
           //الصورة الي بالخلفية
-          const SizedBox(
-           // height: double.infinity,
+           SizedBox(
+            height: double.infinity,
             width: double.infinity,
             child: Image(
               image: AssetImage('lib/assets/images/background2.jpg'),

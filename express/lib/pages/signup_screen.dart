@@ -19,11 +19,11 @@ class _SplashScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Stack(
         children: [
           //الصورة الي بالخلفية
-          const SizedBox(
+           SizedBox(
             height: double.infinity,
             width: double.infinity,
             child: Image(
