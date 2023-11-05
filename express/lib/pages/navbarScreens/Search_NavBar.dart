@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 
-class NavBarFavoret extends StatelessWidget {
-  const NavBarFavoret({super.key});
+class NavBarSearch extends StatelessWidget {
+  const NavBarSearch({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Center(
         child: Text(
-          'صفحة المفضلة',
+          'صفحة البحث',
           style: TextStyle(
             fontFamily: 'cairo',
             fontSize: 5.h,
