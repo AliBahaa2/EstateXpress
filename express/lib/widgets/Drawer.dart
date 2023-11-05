@@ -9,9 +9,6 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    appBar:AppBar(
-      
-    );
     return Drawer(
         child: Column(
       children: [
