@@ -13,7 +13,9 @@ class _NavBarHomeState extends State<NavBarHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        toolbarHeight: 8.h,
+      ),
       drawer: const MyDrawer(),
       body: Center(
         child: Text(
