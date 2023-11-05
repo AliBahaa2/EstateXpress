@@ -1,8 +1,8 @@
-import 'package:express/pages/login_screen.dart';
+import 'package:express/pages/Login_screen.dart';
 import 'package:flutter/material.dart';
 import '../components/material_Button.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
-import 'package:express/pages/homeScreen.dart';
+import 'package:express/pages/HomeScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

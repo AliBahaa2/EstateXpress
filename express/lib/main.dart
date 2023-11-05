@@ -1,4 +1,4 @@
-import 'package:express/pages/splashScreen.dart';
+import 'package:express/pages/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 

@@ -1,11 +1,11 @@
-import 'package:express/widgets/navbarScreens/navBarFavoret.dart';
+import 'package:express/pages/navbarScreens/Favoret_NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-import 'navbarScreens/navBarHome.dart';
-import 'navbarScreens/navBarSearch.dart';
-import 'navbarScreens/navBarSitting.dart';
+import '../pages/navbarScreens/Home_NavBar.dart';
+import '../pages/navbarScreens/Search_NavBar.dart';
+import '../pages/navbarScreens/Add_NavBar.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -70,8 +70,8 @@ class _NavBarState extends State<NavBar> {
                   text: 'البحث',
                 ),
                 GButton(
-                  icon: Icons.settings_outlined,
-                  text: 'الإعدادات',
+                  icon: Icons.add,
+                  text: 'الاضافة',
                 ),
               ],
               selectedIndex: _selectedIndex,
