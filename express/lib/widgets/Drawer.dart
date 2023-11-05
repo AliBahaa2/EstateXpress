@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 
+
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
     super.key,
@@ -8,82 +9,84 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Drawer(
+    appBar:AppBar(
+      
+    );
+    return Drawer(
         child: Column(
       children: [
         SizedBox(
-          height: 20.h,
+          height: 5.h,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Image(
-              image: AssetImage(
+              image: const AssetImage(
                 'lib/assets/images/splashLogo.png',
               ),
-              height: 90,
+              height: 70.dp,
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Icon(
-                Icons.close,
-              ),
-            ),
-
-            //   // weight: ,
-            // ),
-            //
-            //
+                padding: EdgeInsets.symmetric(horizontal: 5.w),
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
+                    Icons.close,
+                  ),
+                )),
           ],
         ),
         SizedBox(
           height: 5.h,
         ),
 
-        ListTile(
+        const ListTile(
           iconColor: Colors.grey,
           textColor: Colors.grey,
           title: Text('الاشعارات'),
           leading: Icon(Icons.notifications_none),
           // onTap: (){},
         ),
-        ListTile(
+        const ListTile(
           iconColor: Colors.grey,
           textColor: Colors.grey,
           title: Text('مخطط الاراضي'),
           leading: Icon(Icons.map_rounded),
           // onTap: (){},
         ),
-        ListTile(
+        const ListTile(
           iconColor: Colors.grey,
           textColor: Colors.grey,
           title: Text('دليل الاسعار'),
           leading: Icon(Icons.house_siding_sharp),
           // onTap: (){},
         ),
-        ListTile(
+        const ListTile(
           iconColor: Colors.grey,
           textColor: Colors.grey,
           title: Text('الاعدادات'),
           leading: Icon(Icons.settings),
           // onTap: (){},
         ),
-        ListTile(
+        const ListTile(
           iconColor: Colors.grey,
           textColor: Colors.grey,
           title: Text('اذهب الى العقار'),
           leading: Icon(Icons.numbers_rounded),
           // onTap: (){},
         ),
-        Divider(
+        const Divider(
           indent: 30,
           color: Colors.grey,
           endIndent: 30,
         ),
         // SizedBox(),
 
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Icon(
@@ -102,13 +105,10 @@ class MyDrawer extends StatelessWidget {
             SocalIcon(
               iconsrc: 'lib/assets/images/instttttt.png',
             ),
-
-         
           ],
         ),
 
-      
-        Divider(
+        const Divider(
           height: 30,
           indent: 30,
           color: Colors.grey,
@@ -117,7 +117,7 @@ class MyDrawer extends StatelessWidget {
         // SizedBox(
         //   height: 10,
         // ),
-        Center(
+        const Center(
           child: Text(
             'version 0.1',
             style: TextStyle(color: Colors.grey),
@@ -137,14 +137,12 @@ class SocalIcon extends StatelessWidget {
     return GestureDetector(
       // onTap: press(),
       child: Container(
-          padding: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-              
-              ),
+          padding: const EdgeInsets.all(20),
+          decoration: const BoxDecoration(),
           child: Image.asset(
             iconsrc,
-            width: 40.w,
-            height: 40.h,
+            width: 5.w,
+            height: 5.h,
           )),
     );
   }
