@@ -73,6 +73,8 @@ flutter:
     - lib\assets\images\splashLogo.png
     - lib\assets\images\background.jpg
     - lib\assets\images\background2.jpg
+    - lib\assets\images\facebookhhh.png
+    - lib\assets\images\instttttt.png
  
 
   # An image asset can refer to one or more resolution-specific "variants", see
