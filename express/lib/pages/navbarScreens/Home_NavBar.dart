@@ -65,10 +65,13 @@ class _NavBarHomeState extends State<NavBarHome> {
 
 Widget buildImage(String urlImage, int index) => Container(
       margin: EdgeInsets.symmetric(horizontal: 1.w),
-      child: Image.asset(
-        height: double.infinity,
-        width: double.infinity,
-        urlImage,
-        fit: BoxFit.fill,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Image.asset(
+          height: double.infinity,
+          width: double.infinity,
+          urlImage,
+          fit: BoxFit.fill,
+        ),
       ),
     );
