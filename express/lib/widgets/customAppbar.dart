@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:express/components/MyColors.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatefulWidget {
   @override
   const CustomAppBar({
     super.key,
   });
+
+  @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +46,34 @@ class CustomAppBar extends StatelessWidget {
                 },
               ),
             ),
-            const Spacer(),
+            //ايقونة البحث
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
+              child: SizedBox(
+                height: 6.h,
+                width: 48.w,
+                child: TextField(
+                  controller: _searchController,
+                  decoration: InputDecoration(
+                    prefixIcon: IconButton(
+                      icon: const Icon(Icons.search),
+                      onPressed: () {},
+                    ),
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.clear),
+                      onPressed: () => _searchController.clear(),
+                    ),
+                    hintText: 'بحث',
+                    hintStyle: const TextStyle(
+                      fontFamily: 'Tajawal',
+                      fontWeight: FontWeight.bold
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                  ),
+                ),
+              ),
+            ),
             //Maps ايقونة الـ
             Container(
               decoration: BoxDecoration(

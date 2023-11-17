@@ -17,7 +17,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _selectedIndex = 0;
-  //navBar لست تحتوي على الشاشات داخل الـ
+
   static const List<Widget> _widgetOptions = <Widget>[
     NavBarHome(),
     NavBarFavoret(),
@@ -27,7 +27,7 @@ class _NavBarState extends State<NavBar> {
 
   @override
   Widget build(BuildContext context) {
-    //هاي الوجت استخدمتها حتى اخلي محتويات الشاشة باللغة العربية
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(

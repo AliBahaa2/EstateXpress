@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../widgets/Houses.dart';
+
 class NavBarHome extends StatefulWidget {
   const NavBarHome({super.key});
 
@@ -49,11 +51,15 @@ class _NavBarHomeState extends State<NavBarHome> {
               return buildImage(urlImage, index);
             },
           ),
-
+          
+          
           SizedBox(
             height: 1.h,
           ),
+          //النقاط الي تتحرك وي الصورة
           buildIndicator(),
+          SizedBox(height: 1.h,),
+          const Houses(),
         ],
       ),
     );
