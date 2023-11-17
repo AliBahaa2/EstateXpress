@@ -1,4 +1,3 @@
-import 'package:express/widgets/Drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 
@@ -13,10 +12,7 @@ class _NavBarHomeState extends State<NavBarHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 8.h,
-      ),
-      drawer: const MyDrawer(),
+      
       body: Center(
         child: Text(
           'الصفحة الرئيسية',
