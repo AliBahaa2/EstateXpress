@@ -11,7 +11,11 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //AppBar يحتوي على الايقونتين الي بالـ
-    return SizedBox(
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: Colors.white,
+      ),
       height: 14.h,
       child: Padding(
         padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 4.h),
