@@ -1,12 +1,11 @@
 import 'package:express/pages/navbarScreens/Favoret_NavBar.dart';
-import 'package:express/widgets/Drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import '../pages/navbarScreens/Home_NavBar.dart';
 import '../pages/navbarScreens/Search_NavBar.dart';
 import '../pages/navbarScreens/Add_NavBar.dart';
-import '../widgets/customAppbar.dart';
+
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -32,8 +31,6 @@ class _NavBarState extends State<NavBar> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: const CustomAppBar(),
-        drawer: const MyDrawer(),
         backgroundColor: Colors.white,
         body: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
