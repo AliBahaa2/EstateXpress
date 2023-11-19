@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import '../pages/navbarScreens/Home_NavBar.dart';
-import '../pages/navbarScreens/Search_NavBar.dart';
+import '../pages/navbarScreens/Services_NavBar.dart';
 import '../pages/navbarScreens/Add_NavBar.dart';
 
 
@@ -21,7 +21,7 @@ class _NavBarState extends State<NavBar> {
   static const List<Widget> _widgetOptions = <Widget>[
     NavBarHome(),
     NavBarFavoret(),
-    NavBarSearch(),
+    NavBarServices(),
     NavBarSetting(),
   ];
 
@@ -61,18 +61,22 @@ class _NavBarState extends State<NavBar> {
                 GButton(
                   icon: Icons.home_outlined,
                   text: 'الرئيسية',
+                  textStyle: TextStyle(fontFamily: 'cairo'),
                 ),
                 GButton(
                   icon: Icons.favorite_border,
                   text: 'المفضلة',
+                  textStyle: TextStyle(fontFamily: 'cairo'),
                 ),
                 GButton(
-                  icon: Icons.search,
-                  text: 'البحث',
+                  icon: Icons.widgets_outlined,
+                  text: 'الخدمات',
+                  textStyle: TextStyle(fontFamily: 'cairo'),
                 ),
                 GButton(
                   icon: Icons.add,
                   text: 'الاضافة',
+                  textStyle: TextStyle(fontFamily: 'cairo'),
                 ),
               ],
               selectedIndex: _selectedIndex,

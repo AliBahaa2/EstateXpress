@@ -23,7 +23,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         borderRadius: BorderRadius.circular(16),
         color: Colors.white,
       ),
-      height: 14.h,
+      height: 12.h,
       child: Padding(
         padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 4.h),
         child: Row(
