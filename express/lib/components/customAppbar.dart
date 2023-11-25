@@ -27,6 +27,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       child: Padding(
         padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 4.h),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //Drawer ايقونة الـ
             Container(
