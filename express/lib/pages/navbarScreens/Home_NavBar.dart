@@ -1,12 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:express/components/Category.dart';
 import 'package:express/components/MyColors.dart';
 import 'package:express/widgets/Drawer.dart';
-import 'package:express/widgets/customAppbar.dart';
+import 'package:express/components/customAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import '../../widgets/Houses.dart';
 
 class NavBarHome extends StatefulWidget {
   const NavBarHome({super.key});
@@ -31,35 +30,44 @@ class _NavBarHomeState extends State<NavBarHome> {
       body: Column(
         children: [
           const CustomAppBar(),
-          SizedBox(
-            height: 1.h,
-          ),
-          //كلاس الصور المتحركة
-          CarouselSlider.builder(
-            options: CarouselOptions(
-              height: 22.h,
-              autoPlay: true,
-              enlargeCenterPage: true,
-              autoPlayInterval: const Duration(seconds: 3),
-              onPageChanged: (index, reason) => setState(
-                () => activeIndex = index,
+          Column(
+            children: [
+              SizedBox(
+                height: 1.h,
               ),
-            ),
-            itemCount: urlImages.length,
-            itemBuilder: (context, index, realIndex) {
-              final urlImage = urlImages[index];
-              return buildImage(urlImage, index);
-            },
+              //الصور الي تتنقل
+              CarouselSlider.builder(
+                options: CarouselOptions(
+                  height: 22.h,
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  autoPlayInterval: const Duration(seconds: 3),
+                  onPageChanged: (index, reason) => setState(
+                    () => activeIndex = index,
+                  ),
+                ),
+                itemCount: urlImages.length,
+                itemBuilder: (context, index, realIndex) {
+                  final urlImage = urlImages[index];
+                  return buildImage(urlImage, index);
+                },
+              ),
+              SizedBox(
+                height: 1.h,
+              ),
+              //النقاط الي تتحرك وي الصورة
+              buildIndicator(),
+              const Divider(),
+              SizedBox(
+                height: 0.5.h,
+              ),
+              //فئات الاشياء الي يختارها المستخدم
+              const Categories(),
+              SizedBox(
+                height: 1.h,
+              ),
+            ],
           ),
-          
-          
-          SizedBox(
-            height: 1.h,
-          ),
-          //النقاط الي تتحرك وي الصورة
-          buildIndicator(),
-          SizedBox(height: 1.h,),
-          const Houses(),
         ],
       ),
     );
