@@ -1,4 +1,5 @@
 import 'package:express/pages/Login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../components/material_Button.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
@@ -12,6 +13,9 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<SignUpScreen> {
+  TextEditingController username = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,10 +53,28 @@ class _LoginScreenState extends State<SignUpScreen> {
                               color: Colors.white),
                         ),
                         SizedBox(height: 30.dp),
-                        //ادخال البريد الالكتروني
+                        //ادخال اسم المستخدم
                         TextFormField(
+                          controller: username,
                           textDirection: TextDirection.rtl,
                           decoration: const InputDecoration(
+                            labelText: 'اسم المستخدم',
+                            labelStyle: TextStyle(
+                              color: Color.fromARGB(255, 131, 167, 185),
+                              fontFamily: 'Tajawal',
+                              fontWeight: FontWeight.bold,
+                            ),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                        ),
+                        SizedBox(height: 3.h),
+                        //ادخال البريد الالكتروني
+                        TextFormField(
+                          controller: email,
+                          textDirection: TextDirection.rtl,
+                          decoration: const InputDecoration(
+                            suffixIcon: Icon(Icons.remove_red_eye),
                             labelText: 'البريد الالكتروني',
                             labelStyle: TextStyle(
                               color: Color.fromARGB(255, 131, 167, 185),
@@ -66,6 +88,7 @@ class _LoginScreenState extends State<SignUpScreen> {
                         SizedBox(height: 3.h),
                         //ادخال كلمة المرور
                         TextFormField(
+                          controller: password,
                           textDirection: TextDirection.rtl,
                           decoration: const InputDecoration(
                             suffixIcon: Icon(Icons.remove_red_eye),
@@ -79,32 +102,30 @@ class _LoginScreenState extends State<SignUpScreen> {
                             filled: true,
                           ),
                         ),
-
-                        SizedBox(height: 3.h),
-                        //ادخال كلمة المرور
-                        TextFormField(
-                          textDirection: TextDirection.rtl,
-                          decoration: const InputDecoration(
-                            suffixIcon: Icon(Icons.remove_red_eye),
-                            labelText: '  تأكيد كلمة المرور',
-                            labelStyle: TextStyle(
-                              color: Color.fromARGB(255, 131, 167, 185),
-                              fontFamily: 'Tajawal',
-                              fontWeight: FontWeight.bold,
-                            ),
-                            fillColor: Colors.white,
-                            filled: true,
-                          ),
-                        ),
                         SizedBox(height: 10.h),
                         //زر تسجيل الدخول
                         Material_Button(
-                          name: ' انشاء حساب',
-                          onpress: () => Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      const HomeScreen())),
-                        ),
+                            name: ' انشاء حساب',
+                            //عملية خزن البيانات في قواعد البيانات
+                            onpress: () async {
+                              try {
+                                final credential = await FirebaseAuth.instance
+                                    .createUserWithEmailAndPassword(
+                                  email: email.text,
+                                  password: password.text,
+                                );
+                                Navigator.of(context).pushReplacementNamed("homepage");
+                              } on FirebaseAuthException catch (e) {
+                                if (e.code == 'weak-password') {
+                                  print('The password provided is too weak.');
+                                } else if (e.code == 'email-already-in-use') {
+                                  print(
+                                      'The account already exists for that email.');
+                                }
+                              } catch (e) {
+                                print(e);
+                              }
+                            }),
                         SizedBox(height: 1.h),
                         //الا تمتلك حساب؟ انشاء حساب
                         Row(

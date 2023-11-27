@@ -83,10 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         //زر تسجيل الدخول
                         Material_Button(
                           name: 'تسجيل الدخول',
-                          onpress: () => Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      const HomeScreen())),
+                          onpress: () => Navigator.of(context).pushReplacementNamed('signUp')
                         ),
                         SizedBox(height: 1.h),
                         //الا تمتلك حساب؟ انشاء حساب
