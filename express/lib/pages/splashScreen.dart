@@ -1,3 +1,5 @@
+import 'package:express/pages/homeScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../components/material_Button.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
@@ -101,14 +103,23 @@ class _SplashScreenState extends State<SplashScreen> {
                               height: 3.h,
                             ),
                             Material_Button(
-                              name: 'الدخول',
-                              onpress: () =>
-                                  Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        const LoginScreen()),
-                              ),
-                            ),
+                                name: 'الدخول',
+                                onpress: () {
+                                  //هنا يسوي اختبار اذا المستخدم مسوي تسجيل دخول ينقله لصفحة الهوم واذا ما مسجل دخول ينقله لصفحة تسجيل الدخول
+                                  FirebaseAuth.instance.currentUser == null
+                                      ? Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                const LoginScreen(),
+                                          ),
+                                        )
+                                      : Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                const HomeScreen(),
+                                          ),
+                                        );
+                                }),
                           ],
                         ),
                       ],

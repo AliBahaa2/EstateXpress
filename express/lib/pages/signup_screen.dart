@@ -1,9 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:express/pages/Login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../components/material_Button.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
-import 'package:express/pages/HomeScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -74,7 +76,6 @@ class _LoginScreenState extends State<SignUpScreen> {
                           controller: email,
                           textDirection: TextDirection.rtl,
                           decoration: const InputDecoration(
-                            suffixIcon: Icon(Icons.remove_red_eye),
                             labelText: 'البريد الالكتروني',
                             labelStyle: TextStyle(
                               color: Color.fromARGB(255, 131, 167, 185),
@@ -117,10 +118,23 @@ class _LoginScreenState extends State<SignUpScreen> {
                                 Navigator.of(context).pushReplacementNamed("homepage");
                               } on FirebaseAuthException catch (e) {
                                 if (e.code == 'weak-password') {
-                                  print('The password provided is too weak.');
+                                  AwesomeDialog(
+                                    context: context,
+                                    dialogType: DialogType.error,
+                                    animType: AnimType.rightSlide,
+                                    title: 'خطأ',
+                                    desc:
+                                        '!كلمة المرور التي ادخلتها ضعيفة',
+                                  ).show();
                                 } else if (e.code == 'email-already-in-use') {
-                                  print(
-                                      'The account already exists for that email.');
+                                      AwesomeDialog(
+                                    context: context,
+                                    dialogType: DialogType.error,
+                                    animType: AnimType.rightSlide,
+                                    title: 'خطأ',
+                                    desc:
+                                        '!هذا الحساب موجود بالفعل',
+                                  ).show();
                                 }
                               } catch (e) {
                                 print(e);

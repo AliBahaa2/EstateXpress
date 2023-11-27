@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -14,9 +16,11 @@ class MyDrawer extends StatelessWidget {
         SizedBox(
           height: 5.h,
         ),
+        //اللوكو وزر الاغلاق
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            //Drawer اللوكو الموجود بالـ
             Image(
               image: const AssetImage(
                 'lib/assets/images/splashLogo.png',
@@ -24,22 +28,23 @@ class MyDrawer extends StatelessWidget {
               height: 70.dp,
             ),
             const Spacer(),
+            //Drawer الزر الي يغلق الـ
             Padding(
-                padding: EdgeInsets.symmetric(horizontal: 5.w),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.close,
-                  ),
-                )),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.close,
+                ),
+              ),
+            ),
           ],
         ),
         SizedBox(
           height: 5.h,
         ),
-
         const ListTile(
           iconColor: Colors.grey,
           textColor: Colors.grey,
@@ -47,12 +52,15 @@ class MyDrawer extends StatelessWidget {
           leading: Icon(Icons.notifications_none),
           // onTap: (){},
         ),
-        const ListTile(
-          iconColor: Colors.grey,
-          textColor: Colors.grey,
-          title: Text('مخطط الاراضي'),
-          leading: Icon(Icons.map_rounded),
-          // onTap: (){},
+        //الاشعارات
+        GestureDetector(
+          child: const ListTile(
+            iconColor: Colors.grey,
+            textColor: Colors.grey,
+            title: Text('مخطط الاراضي'),
+            leading: Icon(Icons.map_rounded),
+            // onTap: (){},
+          ),
         ),
         const ListTile(
           iconColor: Colors.grey,
@@ -80,8 +88,6 @@ class MyDrawer extends StatelessWidget {
           color: Colors.grey,
           endIndent: 30,
         ),
-        // SizedBox(),
-
         const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -103,21 +109,46 @@ class MyDrawer extends StatelessWidget {
             ),
           ],
         ),
-
-        const Divider(
-          height: 30,
+        Divider(
+          height: 4.h,
           indent: 30,
           color: Colors.grey,
           endIndent: 30,
         ),
-        // SizedBox(
-        //   height: 10,
-        // ),
         const Center(
           child: Text(
             'version 0.1',
             style: TextStyle(color: Colors.grey),
           ),
+        ),
+        SizedBox(
+          height: 10.h,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.exit_to_app,
+                size: 35.dp,
+              ),
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil("login", (route) => false);
+              },
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 2.h),
+              child: Text(
+                'تسجيل الخروج',
+                style: TextStyle(
+                    fontFamily: 'tajawal',
+                    fontSize: 20.dp,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
         )
       ],
     ));

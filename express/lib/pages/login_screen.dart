@@ -1,3 +1,7 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../components/material_Button.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
@@ -12,6 +16,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(height: 30.dp),
                         //ادخال البريد الالكتروني
                         TextFormField(
+                          controller: email,
                           textDirection: TextDirection.rtl,
                           decoration: const InputDecoration(
                             labelText: 'البريد الالكتروني',
@@ -66,6 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(height: 3.h),
                         //ادخال كلمة المرور
                         TextFormField(
+                          controller: password,
                           textDirection: TextDirection.rtl,
                           decoration: const InputDecoration(
                             suffixIcon: Icon(Icons.remove_red_eye),
@@ -82,9 +91,40 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(height: 10.h),
                         //زر تسجيل الدخول
                         Material_Button(
-                          name: 'تسجيل الدخول',
-                          onpress: () => Navigator.of(context).pushReplacementNamed('signUp')
-                        ),
+                            name: 'تسجيل الدخول',
+                            onpress: () async {
+                              try {
+                                final credential = await FirebaseAuth.instance
+                                    .signInWithEmailAndPassword(
+                                  email: email.text,
+                                  password: password.text,
+                                );
+                                Navigator.of(context)
+                                    .pushReplacementNamed("homepage");
+                              } on FirebaseAuthException catch (e) {
+                                if (e.code == 'user-not-found') {
+                                  AwesomeDialog(
+                                    context: context,
+                                    dialogType: DialogType.error,
+                                    animType: AnimType.rightSlide,
+                                    title: 'خطأ',
+                                    desc:
+                                        '!لا يوجد مستخدم لهذا الايميل',
+                                  ).show();
+                                } else if (e.code == 'wrong-password') {
+                                  print(
+                                      'Wrong password provided for that user.');
+                                  AwesomeDialog(
+                                    context: context,
+                                    dialogType: DialogType.error,
+                                    animType: AnimType.rightSlide,
+                                    title: 'خطأ',
+                                    desc:
+                                        '!كلمة المرور غير صحيحة',
+                                  ).show();
+                                }
+                              }
+                            }),
                         SizedBox(height: 1.h),
                         //الا تمتلك حساب؟ انشاء حساب
                         Row(
@@ -101,13 +141,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             TextButton(
                               onPressed: () => Navigator.of(context)
-                                  .pushReplacement(MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          const SignUpScreen())),
+                                  .pushReplacementNamed("signup"),
                               child: Text(
                                 'انشاء حساب',
                                 style: TextStyle(
-                                    color: Color.fromARGB(255, 0, 151, 233),
+                                    color:
+                                        const Color.fromARGB(255, 0, 151, 233),
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15.dp,
                                     fontFamily: 'tajawal'),
