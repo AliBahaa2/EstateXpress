@@ -21,6 +21,7 @@ def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
+apply plugin: 'com.google.gms.google-services'
 
 android {
     namespace "com.example.express"
@@ -49,6 +50,13 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        defaultConfig {
+        multiDexEnabled true
+    }
+//
+dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
+}
     }
 
     buildTypes {
@@ -59,6 +67,7 @@ android {
         }
     }
 }
+//
 
 flutter {
     source '../..'

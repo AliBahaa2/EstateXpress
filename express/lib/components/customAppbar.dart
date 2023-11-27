@@ -19,13 +19,14 @@ class _CustomAppBarState extends State<CustomAppBar> {
   Widget build(BuildContext context) {
     //AppBar يحتوي على الايقونتين الي بالـ
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
         color: Colors.white,
       ),
       height: 12.h,
       child: Padding(
-        padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 4.h),
+        padding: EdgeInsets.only(left: 7.w, right: 7.w, top: 3.h),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -66,9 +67,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     ),
                     hintText: 'بحث',
                     hintStyle: const TextStyle(
-                      fontFamily: 'Tajawal',
-                      fontWeight: FontWeight.bold
-                    ),
+                        fontFamily: 'Tajawal', fontWeight: FontWeight.bold),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                   ),

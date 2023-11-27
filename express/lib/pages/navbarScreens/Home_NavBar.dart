@@ -75,7 +75,7 @@ class _NavBarHomeState extends State<NavBarHome> {
 
   //الفانكشن الي تعرض انتقال الصور
   Widget buildImage(String urlImage, int index) => Container(
-        margin: EdgeInsets.symmetric(horizontal: 1.w),
+        margin: EdgeInsets.symmetric(horizontal: 0.1.w),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.asset(
