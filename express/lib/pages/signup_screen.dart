@@ -104,7 +104,7 @@ class _LoginScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         SizedBox(height: 10.h),
-                        //زر تسجيل الدخول
+                        //زر انشاء حساب 
                         Material_Button(
                             name: ' انشاء حساب',
                             //عملية خزن البيانات في قواعد البيانات
