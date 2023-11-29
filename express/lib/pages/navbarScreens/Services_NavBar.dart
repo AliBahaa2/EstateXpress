@@ -1,3 +1,4 @@
+import 'package:express/components/customAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 
@@ -8,14 +9,19 @@ class NavBarServices extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          'صفحة الخدمات',
-          style: TextStyle(
-            fontFamily: 'cairo',
-            fontSize: 5.h,
-          ),
-        ),
-      ),
+          child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                height: 10.h,
+                width: 7.w,
+                color: Colors.amber,
+              )
+            ],
+          )
+        ],
+      )),
     );
   }
 }
