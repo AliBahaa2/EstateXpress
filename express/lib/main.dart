@@ -42,8 +42,8 @@ class _MyAppState extends State<MyApp> {
           home: const SplashScreen(),
           routes: {
             "signup": (context) => const SignUpScreen(),
-            "login":(context) => const LoginScreen(),
-            "homepage":(context) => const HomeScreen(),
+            "login": (context) => const LoginScreen(),
+            "homepage": (context) => const HomeScreen(),
           },
         );
       },
