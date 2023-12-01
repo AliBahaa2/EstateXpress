@@ -1,11 +1,14 @@
 import 'package:express/pages/Login_screen.dart';
 import 'package:express/pages/SplashScreen.dart';
 import 'package:express/pages/homeScreen.dart';
+import 'package:express/pages/notification.dart';
 import 'package:express/pages/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'pages/navbarScreens/Home_NavBar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,6 +47,8 @@ class _MyAppState extends State<MyApp> {
             "signup": (context) => const SignUpScreen(),
             "login": (context) => const LoginScreen(),
             "homepage": (context) => const HomeScreen(),
+            "notication": (context) => const Notivation(),
+            "NavBarHome": (context) => const NavBarHome(),
           },
         );
       },

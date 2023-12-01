@@ -8,7 +8,14 @@ class Notivation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        leading: IconButton(
+          color: Colors.blue,
+          icon: const Icon(Icons.arrow_back_rounded),
+          onPressed: () {
+            Navigator.of(context).pushNamed("homepage");
+          },
+        ),
+        title: const Text(
           'الاشعارات ',
           style: TextStyle(fontFamily: 'Tajawal', color: Colors.blue),
         ),
@@ -20,27 +27,30 @@ class Notivation extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: Color.fromARGB(95, 180, 176, 176)),
+              color: const Color.fromARGB(95, 180, 176, 176)),
           child: Row(
             children: [
-              Container(
+              SizedBox(
                 width: 20.w,
                 height: 10.h,
-                child: Text(
-                  '2023/29/11',
-                  style: TextStyle(
-                      fontFamily: 'Tajawal',
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    '1/12/2022',
+                    style: TextStyle(
+                        fontFamily: 'Tajawal',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
+                  ),
                 ),
               ),
               Expanded(
                 child: Container(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 3.w),
-                    child: Text(
+                    child: const Text(
                       textAlign: TextAlign.end,
-                      "  اهلا بك , شكرا الاستخدامك هذا التطبيق ",
+                      "  .اهلاً بك, شكرا لأستخدامك هذا التطبيق ",
                       style: TextStyle(
                           fontFamily: 'Tajawal', fontWeight: FontWeight.bold),
                       maxLines: 2,

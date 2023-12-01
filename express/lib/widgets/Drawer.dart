@@ -9,152 +9,148 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-        child: Padding(
-      padding: EdgeInsets.only(right: 2.w),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 5.h,
-          ),
-          //اللوكو وزر الاغلاق
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              //Drawer اللوكو الموجود بالـ
-              Image(
-                image: const AssetImage(
-                  'lib/assets/images/splashLogo.png',
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Drawer(
+          child: Padding(
+        padding: EdgeInsets.only(right: 2.w),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 5.h,
+            ),
+            //اللوكو وزر الاغلاق
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                //Drawer اللوكو الموجود بالـ
+                Image(
+                  image: const AssetImage(
+                    'lib/assets/images/splashLogo.png',
+                  ),
+                  height: 70.dp,
                 ),
-                height: 70.dp,
-              ),
-              const Spacer(),
-              //Drawer الزر الي يغلق الـ
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 5.w),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.close,
+                const Spacer(),
+                //Drawer الزر الي يغلق الـ
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.close,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 5.h,
-          ),
-          const ListTile(
-            iconColor: Colors.grey,
-            textColor: Colors.grey,
-            title: Text('الاشعارات',style: TextStyle(fontWeight: FontWeight.bold),),
-            leading: Icon(Icons.notifications_none),
-            // onTap: (){},
-          ),
-          //الاشعارات
-          GestureDetector(
-            child: const ListTile(
+              ],
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            ListTile(
               iconColor: Colors.grey,
               textColor: Colors.grey,
-              title: Text('مخطط الاراضي',style: TextStyle(fontWeight: FontWeight.bold),),
-              leading: Icon(Icons.map_rounded),
+              title: const Text(
+                'الاشعارات',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              leading: const Icon(Icons.notifications_none),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("notication");
+              },
+            ),
+            //الاشعارات
+            GestureDetector(
+              child: const ListTile(
+                iconColor: Colors.grey,
+                textColor: Colors.grey,
+                title: Text(
+                  'مخطط الاراضي',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                leading: Icon(Icons.map_rounded),
+                // onTap: (){},
+              ),
+            ),
+            const ListTile(
+              iconColor: Colors.grey,
+              textColor: Colors.grey,
+              title: Text(
+                'دليل الاسعار',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              leading: Icon(Icons.house_siding_sharp),
               // onTap: (){},
             ),
-          ),
-          const ListTile(
-            iconColor: Colors.grey,
-            textColor: Colors.grey,
-            title: Text('دليل الاسعار',style: TextStyle(fontWeight: FontWeight.bold),),
-            leading: Icon(Icons.house_siding_sharp),
-            // onTap: (){},
-          ),
-          const ListTile(
-            iconColor: Colors.grey,
-            textColor: Colors.grey,
-            title: Text('الاعدادات',style: TextStyle(fontWeight: FontWeight.bold),),
-            leading: Icon(Icons.settings),
-            // onTap: (){},
-          ),
-           ListTile(
-            iconColor: Colors.grey,
-            textColor: Colors.grey,
-            title: Text('تسجيل الخروج',style: TextStyle(fontWeight: FontWeight.bold),),
-            leading: Icon(Icons.exit_to_app,),
-            onTap: () async {
-              await FirebaseAuth.instance.signOut();
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil("login", (route) => false);
-            },
-          ),
-          // GestureDetector(
-          //   onTap: () async {
-          //     await FirebaseAuth.instance.signOut();
-          //     Navigator.of(context)
-          //         .pushNamedAndRemoveUntil("login", (route) => false);
-          //   },
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.start,
-          //     children: [
-          //       Icon(
-          //         Icons.exit_to_app,
-          //         size: 30.dp,
-          //       ),
-          //       Padding(
-          //         padding: EdgeInsets.only(top: 1.h),
-          //         child: Text(
-          //           'تسجيل الخروج',
-          //           style: TextStyle(
-          //             fontFamily: 'tajawal',
-          //             fontSize: 15.dp,
-          //           ),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          const Divider(
-            indent: 30,
-            color: Colors.grey,
-            endIndent: 30,
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                Icons.phone,
-                color: Colors.grey,
+            const ListTile(
+              iconColor: Colors.grey,
+              textColor: Colors.grey,
+              title: Text(
+                'الاعدادات',
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text(
-                'الاتصال',
-                style: TextStyle(
+              leading: Icon(Icons.settings),
+              // onTap: (){},
+            ),
+            ListTile(
+              iconColor: Colors.grey,
+              textColor: Colors.grey,
+              title: Text(
+                'تسجيل الخروج',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              leading: Icon(
+                Icons.exit_to_app,
+              ),
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil("login", (route) => false);
+              },
+            ),
+            const Divider(
+              indent: 30,
+              color: Colors.grey,
+              endIndent: 30,
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.phone,
                   color: Colors.grey,
                 ),
-              ),
-              SocalIcon(
-                iconsrc: 'lib/assets/images/facebookhhh.png',
-              ),
-              SocalIcon(
-                iconsrc: 'lib/assets/images/instttttt.png',
-              ),
-            ],
-          ),
-          Divider(
-            height: 4.h,
-            indent: 30,
-            color: Colors.grey,
-            endIndent: 30,
-          ),
-          const Center(
-            child: Text(
-              'version 0.1',
-              style: TextStyle(color: Colors.grey),
+                Text(
+                  'الاتصال',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+                SocalIcon(
+                  iconsrc: 'lib/assets/images/facebookhhh.png',
+                ),
+                SocalIcon(
+                  iconsrc: 'lib/assets/images/instttttt.png',
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
-    ));
+            Divider(
+              height: 4.h,
+              indent: 30,
+              color: Colors.grey,
+              endIndent: 30,
+            ),
+            const Center(
+              child: Text(
+                'version 0.1',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
+          ],
+        ),
+      )),
+    );
   }
 }
 
