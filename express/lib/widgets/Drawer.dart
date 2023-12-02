@@ -60,28 +60,32 @@ class MyDrawer extends StatelessWidget {
                 Navigator.of(context).pushReplacementNamed("notication");
               },
             ),
-            //الاشعارات
+            //مخطط الاراضي
+            GestureDetector(
+              child: ListTile(
+                iconColor: Colors.grey,
+                textColor: Colors.grey,
+                title: const Text(
+                  'مخطط الاراضي',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                leading:const Icon(Icons.map_rounded),
+                onTap: () {
+                  Navigator.of(context).pushReplacementNamed("LandMaps");
+                },
+              ),
+            ),
             GestureDetector(
               child: const ListTile(
                 iconColor: Colors.grey,
                 textColor: Colors.grey,
                 title: Text(
-                  'مخطط الاراضي',
+                  'دليل الاسعار',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                leading: Icon(Icons.map_rounded),
+                leading: Icon(Icons.house_siding_sharp),
                 // onTap: (){},
               ),
-            ),
-            const ListTile(
-              iconColor: Colors.grey,
-              textColor: Colors.grey,
-              title: Text(
-                'دليل الاسعار',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              leading: Icon(Icons.house_siding_sharp),
-              // onTap: (){},
             ),
             const ListTile(
               iconColor: Colors.grey,
