@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
     super.key,
@@ -48,12 +49,13 @@ class MyDrawer extends StatelessWidget {
             SizedBox(
               height: 5.h,
             ),
+            //الاشعارات
             ListTile(
               iconColor: Colors.grey,
               textColor: Colors.grey,
               title: const Text(
                 'الاشعارات',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
               ),
               leading: const Icon(Icons.notifications_none),
               onTap: () {
@@ -61,50 +63,51 @@ class MyDrawer extends StatelessWidget {
               },
             ),
             //مخطط الاراضي
-            GestureDetector(
-              child: ListTile(
-                iconColor: Colors.grey,
-                textColor: Colors.grey,
-                title: const Text(
-                  'مخطط الاراضي',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                leading:const Icon(Icons.map_rounded),
-                onTap: () {
-                  Navigator.of(context).pushReplacementNamed("LandMaps");
-                },
+            ListTile(
+              iconColor: Colors.grey,
+              textColor: Colors.grey,
+              title: const Text(
+                'مخطط الاراضي',
+                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
               ),
+              leading:const Icon(Icons.map_rounded),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("LandMaps");
+              },
             ),
-            GestureDetector(
-              child: const ListTile(
-                iconColor: Colors.grey,
-                textColor: Colors.grey,
-                title: Text(
-                  'دليل الاسعار',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                leading: Icon(Icons.house_siding_sharp),
-                // onTap: (){},
-              ),
-            ),
+           //معلومات المستخدم
             const ListTile(
               iconColor: Colors.grey,
               textColor: Colors.grey,
               title: Text(
-                'الاعدادات',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                'معلومات المستخدم',
+                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
               ),
-              leading: Icon(Icons.settings),
+              leading: Icon(Icons.supervised_user_circle_sharp),
               // onTap: (){},
             ),
+          //حول البرنامج
+             ListTile(
+              iconColor: Colors.grey,
+              textColor: Colors.grey,
+              title:const Text(
+                'حول البرنامج',
+                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
+              ),
+              leading:const Icon(Icons.info_outline),
+               onTap: (){
+                Navigator.of(context).pushReplacementNamed("About");
+               },
+            ),
+          //تسجيل الخروج
             ListTile(
               iconColor: Colors.grey,
               textColor: Colors.grey,
-              title: Text(
+              title:const Text(
                 'تسجيل الخروج',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
               ),
-              leading: Icon(
+              leading:const Icon(
                 Icons.exit_to_app,
               ),
               onTap: () async {
@@ -118,25 +121,49 @@ class MyDrawer extends StatelessWidget {
               color: Colors.grey,
               endIndent: 30,
             ),
-            const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Icon(
-                  Icons.phone,
-                  color: Colors.grey,
+                GestureDetector(
+                  onTap: ()async{
+                     final url = 'tel:+9647717978031';
+                     if(await canLaunchUrl(Uri.parse(url))){
+                      await launchUrl(Uri.parse(url));
+                     }
+                },
+                  child:const Icon(
+                    Icons.phone,
+                    color: Colors.grey,
+                  ),
                 ),
-                Text(
+                const Text(
                   'الاتصال',
                   style: TextStyle(
                     color: Colors.grey,
                   ),
                 ),
-                SocalIcon(
-                  iconsrc: 'lib/assets/images/facebookhhh.png',
-                ),
-                SocalIcon(
-                  iconsrc: 'lib/assets/images/instttttt.png',
-                ),
+               GestureDetector(
+                onTap: ()async{
+                     final url = 'https://web.facebook.com/ali.liraqi.984';
+                     if(await canLaunchUrl(Uri.parse(url))){
+                      await launchUrl(Uri.parse(url));
+                     }
+                },
+                 child: const SocalIcon(
+                    iconsrc: 'lib/assets/images/facebookhhh.png',
+                  ),
+               ),
+               GestureDetector(
+                onTap: ()async{
+                     final url = 'https://www.instagram.com/it_ali30/';
+                     if(await canLaunchUrl(Uri.parse(url))){
+                      await launchUrl(Uri.parse(url));
+                     }
+                },
+                 child: const SocalIcon(
+                    iconsrc: 'lib/assets/images/instttttt.png',
+                  ),
+               ),
               ],
             ),
             Divider(
@@ -161,7 +188,7 @@ class MyDrawer extends StatelessWidget {
 class SocalIcon extends StatelessWidget {
   final String iconsrc;
   // final Function press;
-  const SocalIcon({required this.iconsrc});
+  const SocalIcon({super.key, required this.iconsrc});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
