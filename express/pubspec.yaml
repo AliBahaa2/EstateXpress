@@ -100,6 +100,7 @@ flutter:
     - lib\assets\pdf\2356.pdf
     - lib\assets\pdf\2373.pdf
     - lib\assets\pdf\elec_2_1.pdf
+    - lib\assets\images\Services\serv1.jpg
  
 
   # An image asset can refer to one or more resolution-specific "variants", see
