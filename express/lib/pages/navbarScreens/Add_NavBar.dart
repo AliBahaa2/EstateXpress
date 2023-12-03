@@ -1,11 +1,17 @@
+import 'package:express/components/material_Button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 
 import '../../components/Category.dart';
 
-class NavBarSetting extends StatelessWidget {
+class NavBarSetting extends StatefulWidget {
   const NavBarSetting({super.key});
 
+  @override
+  State<NavBarSetting> createState() => _NavBarSettingState();
+}
+
+class _NavBarSettingState extends State<NavBarSetting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +69,7 @@ class NavBarSetting extends StatelessWidget {
               ),
               const Categories(),
               const Divider(),
-               Row(
+              Row(
                 children: [
                   const Icon(
                     Icons.photo_size_select_actual_rounded,
@@ -78,11 +84,20 @@ class NavBarSetting extends StatelessWidget {
                   ),
                 ],
               ),
-               SizedBox(
+              SizedBox(
+                height: 0.5.h,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'اضافة صورة',
+                  style: TextStyle(fontFamily: 'tajawal', fontSize: 20.dp),
+                ),
+              ),
+              SizedBox(
                 height: 1.h,
               ),
-              
-              
+              const Divider(),
               Row(
                 children: [
                   const Icon(
@@ -220,6 +235,23 @@ class NavBarSetting extends StatelessWidget {
                 ),
               ),
               const Divider(),
+              SizedBox(height: 3.h,),
+              Center(
+                child: ElevatedButton(
+                  
+                  onPressed: () {},
+                  child: SizedBox(
+                    width: 40.w,
+                    height: 4.h,
+                    child: Center(
+                      child: Text(
+                        'اضافة',
+                        style: TextStyle(fontFamily: 'tajawal', fontSize: 20.dp),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
