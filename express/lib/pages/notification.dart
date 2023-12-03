@@ -23,10 +23,12 @@ class Notivation extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 4.w),
+        padding: EdgeInsets.symmetric(horizontal: 4.w),
         child: Column(
           children: [
-            SizedBox(height: 5.h,),
+            SizedBox(
+              height: 5.h,
+            ),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(32),
@@ -36,29 +38,30 @@ class Notivation extends StatelessWidget {
                   SizedBox(
                     width: 20.w,
                     height: 10.h,
-                    child: const Padding(
-                      padding: EdgeInsets.all(16),
+                    child:  Padding(
+                      padding:const EdgeInsets.all(16),
                       child: Text(
                         '1/12/2022',
                         style: TextStyle(
-                            fontFamily: 'Tajawal',
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey),
+                          fontFamily: 'Tajawal',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                          fontSize: 10.dp
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 7.w),
-                        child: const Text(
-                          textAlign: TextAlign.end,
-                          "  .اهلاً بك, شكرا لأستخدامك هذا التطبيق ",
-                          style: TextStyle(
-                              fontFamily: 'Tajawal', fontWeight: FontWeight.bold),
-                          maxLines: 2,
-                        ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 7.w),
+                      child: const Text(
+                        textAlign: TextAlign.end,
+                        " .اهلاً بك, شكرا لأستخدامك هذا التطبيق",
+                        style: TextStyle(
+                            fontFamily: 'Tajawal', fontWeight: FontWeight.bold),
+                        maxLines: 2,
                       ),
-                   
+                    ),
                   ),
                 ],
               ),
