@@ -54,7 +54,7 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 3.w, top: 2.h, bottom: 2.h),
+      padding: EdgeInsets.only(top: 2.h, bottom: 2.h),
       child: SizedBox(
         height: 4.h,
         child: ListView.builder(

@@ -76,15 +76,17 @@ class MyDrawer extends StatelessWidget {
               },
             ),
            //معلومات المستخدم
-            const ListTile(
+             ListTile(
               iconColor: Colors.grey,
               textColor: Colors.grey,
-              title: Text(
+              title:const Text(
                 'معلومات المستخدم',
                 style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
               ),
               leading: Icon(Icons.supervised_user_circle_sharp),
-              // onTap: (){},
+               onTap: (){
+                Navigator.of(context).pushReplacementNamed("UserInfo");
+               },
             ),
           //حول البرنامج
              ListTile(
@@ -155,7 +157,7 @@ class MyDrawer extends StatelessWidget {
                ),
                GestureDetector(
                 onTap: ()async{
-                     final url = 'https://www.instagram.com/it_ali30/';
+                     final url = 'https://www.instagram.com/pro.2_c/';
                      if(await canLaunchUrl(Uri.parse(url))){
                       await launchUrl(Uri.parse(url));
                      }

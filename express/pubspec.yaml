@@ -51,6 +51,7 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^23.2.6
   flutter_phone_direct_caller: ^2.1.1
   url_launcher: ^6.2.1
+  image_picker: ^1.0.4
 
   
 
