@@ -2,10 +2,10 @@ import 'package:express/pages/navbarScreens/Favoret_NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
 import '../pages/navbarScreens/Home_NavBar.dart';
-import '../pages/navbarScreens/Search_NavBar.dart';
+import '../pages/navbarScreens/Services_NavBar.dart';
 import '../pages/navbarScreens/Add_NavBar.dart';
+
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -21,12 +21,13 @@ class _NavBarState extends State<NavBar> {
   static const List<Widget> _widgetOptions = <Widget>[
     NavBarHome(),
     NavBarFavoret(),
-    NavBarSearch(),
+    NavBarServices(),
     NavBarSetting(),
   ];
 
   @override
   Widget build(BuildContext context) {
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -49,29 +50,33 @@ class _NavBarState extends State<NavBar> {
             child: GNav(
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
-              gap: 8,
+              gap: 3.w,
               activeColor: Colors.black,
               iconSize: 24,
               padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
-              duration: Duration(milliseconds: 400),
+              duration: const Duration(milliseconds: 400),
               tabBackgroundColor: Colors.grey[100]!,
               color: Colors.black,
               tabs: const [
                 GButton(
                   icon: Icons.home_outlined,
                   text: 'الرئيسية',
+                  textStyle: TextStyle(fontFamily: 'cairo'),
                 ),
                 GButton(
                   icon: Icons.favorite_border,
                   text: 'المفضلة',
+                  textStyle: TextStyle(fontFamily: 'cairo'),
                 ),
                 GButton(
-                  icon: Icons.search,
-                  text: 'البحث',
+                  icon: Icons.widgets_outlined,
+                  text: 'الخدمات',
+                  textStyle: TextStyle(fontFamily: 'cairo'),
                 ),
                 GButton(
                   icon: Icons.add,
                   text: 'الاضافة',
+                  textStyle: TextStyle(fontFamily: 'cairo'),
                 ),
               ],
               selectedIndex: _selectedIndex,
@@ -87,3 +92,5 @@ class _NavBarState extends State<NavBar> {
     );
   }
 }
+
+
