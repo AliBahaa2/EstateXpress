@@ -1,4 +1,3 @@
-import 'package:express/components/material_Button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 
@@ -22,6 +21,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              //نص اضافة عقار
               Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -32,19 +32,14 @@ class _NavBarSettingState extends State<NavBarSetting> {
                 height: 12.h,
                 child: Padding(
                   padding: EdgeInsets.only(left: 7.w, right: 7.w, top: 3.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                        child: Text(
-                          'اضافة عقار',
-                          style: TextStyle(
-                            fontFamily: 'cairo',
-                            fontSize: 25.dp,
-                          ),
-                        ),
+                  child: Center(
+                    child: Text(
+                      'اضافة عقار',
+                      style: TextStyle(
+                        fontFamily: 'cairo',
+                        fontSize: 25.dp,
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -52,6 +47,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
                 height: 5.h,
               ),
               const Divider(),
+              //اختر الفئى التي تريد اضافتها
               Row(
                 children: [
                   const Icon(
@@ -69,6 +65,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
               ),
               const Categories(),
               const Divider(),
+              //اضافة صورة
               Row(
                 children: [
                   const Icon(
@@ -87,6 +84,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
               SizedBox(
                 height: 0.5.h,
               ),
+              //زر اضافة صورة
               ElevatedButton(
                 onPressed: () {},
                 child: Text(
@@ -98,6 +96,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
                 height: 1.h,
               ),
               const Divider(),
+              //الموقع
               Row(
                 children: [
                   const Icon(
@@ -117,6 +116,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
               SizedBox(
                 height: 1.h,
               ),
+              //المحافظة
               TextFormField(
                 textDirection: TextDirection.rtl,
                 decoration: const InputDecoration(
@@ -134,6 +134,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
               SizedBox(
                 height: 1.h,
               ),
+              //المنطقة
               TextFormField(
                 textDirection: TextDirection.rtl,
                 decoration: const InputDecoration(
@@ -151,6 +152,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
               SizedBox(
                 height: 1.h,
               ),
+              //رقم الدار
               TextFormField(
                 textDirection: TextDirection.rtl,
                 decoration: const InputDecoration(
@@ -166,6 +168,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
                 ),
               ),
               const Divider(),
+              //السعر
               Row(
                 children: [
                   const Icon(
@@ -185,6 +188,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
               SizedBox(
                 height: 1.h,
               ),
+              //ادخال السعر
               TextFormField(
                 keyboardType: TextInputType.number,
                 textDirection: TextDirection.rtl,
@@ -201,6 +205,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
                 ),
               ),
               const Divider(),
+              //التفاصيل
               Row(
                 children: [
                   const Icon(
@@ -236,6 +241,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
               ),
               const Divider(),
               SizedBox(height: 3.h,),
+              //زر الاضافة
               Center(
                 child: ElevatedButton(
                   

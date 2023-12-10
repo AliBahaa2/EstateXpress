@@ -66,7 +66,8 @@ class _NavBarHomeState extends State<NavBarHome> {
                 const Categories(),
                 SizedBox(
                   height: 1.h,
-                ),             
+                ),  
+                // المفروض هنا لست للمنشورات          
               ],
             ),
           ],
