@@ -100,7 +100,17 @@ flutter:
     - lib\assets\pdf\2356.pdf
     - lib\assets\pdf\2373.pdf
     - lib\assets\pdf\elec_2_1.pdf
- 
+    - lib\assets\images\Services\serv1.jpg
+    - lib\assets\images/server_project.jpg
+    - lib\assets\images\swin_project.webp
+    - lib\assets\images\curtains_project2.jpg
+    - lib\assets\images\enger_project.jpg
+    - lib\assets\images\furt_project.jpg
+    - lib\assets\images\lay_project.jpg
+    - lib\assets\images\remove_project.jpg
+    - lib\assets\images\dye_project.jpg
+    - lib\assets\images\Services\dye2.jpg
+    - lib\assets\images\ggff.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

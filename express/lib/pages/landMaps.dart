@@ -48,7 +48,7 @@ class _LandMaps extends State<LandMaps> {
                  SizedBox(
                   height: 4.h,
                 ),
-                 Text('_______________اختر المخطط الذي تريد عرضه_______________',style: TextStyle(fontFamily: 'tajawal',fontSize: 20.dp,fontWeight: FontWeight.bold),),
+                 Text(' اختر المخطط الذي تريد عرضه',style: TextStyle(fontFamily: 'tajawal',fontSize: 20.dp,fontWeight: FontWeight.bold),),
                 SizedBox(
                   height: 4.h,
                 ),
