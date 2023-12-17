@@ -16,7 +16,7 @@ class _ListViewEstateState extends State<ListViewEstate1>
   getData() async {
     QuerySnapshot querySnapshot = await FirebaseFirestore.instance
         .collection('estatedb')
-        .where('type', isEqualTo: "شقه")
+        .where('type', isEqualTo: "بيت")
         .get();
     data.addAll(querySnapshot.docs);
     setState(() {});
