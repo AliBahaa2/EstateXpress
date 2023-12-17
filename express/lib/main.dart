@@ -2,6 +2,7 @@ import 'package:express/pages/Login_screen.dart';
 import 'package:express/pages/SplashScreen.dart';
 import 'package:express/pages/UserDetels.dart';
 import 'package:express/pages/about.dart';
+import 'package:express/pages/deteilsScreen.dart';
 import 'package:express/pages/homeScreen.dart';
 import 'package:express/pages/maps/2356.dart';
 import 'package:express/pages/maps/2373.dart';
@@ -57,16 +58,16 @@ class _MyAppState extends State<MyApp> {
             "homepage": (context) => const HomeScreen(),
             "notication": (context) => const Notivation(),
             "NavBarHome": (context) => const NavBarHome(),
-            "LandMaps": (context) =>  const LandMaps(),
-            "Land2381": (context) =>  const Land2381(),
-            "Land651": (context) =>  const Land651(),
-            "Land2356": (context) =>  const Land2356(),
-            "Land2373": (context) =>  const Land2373(),
-            "Land2382_2": (context) =>  const Land2382_2(),
-            "Landelec_2_1": (context) =>  const Landelec_2_1(),
-            "About": (context) =>  const About(),
-            "UserInfo": (context) =>  const UserDetels(),
-            
+            "LandMaps": (context) => const LandMaps(),
+            "Land2381": (context) => const Land2381(),
+            "Land651": (context) => const Land651(),
+            "Land2356": (context) => const Land2356(),
+            "Land2373": (context) => const Land2373(),
+            "Land2382_2": (context) => const Land2382_2(),
+            "Landelec_2_1": (context) => const Landelec_2_1(),
+            "About": (context) => const About(),
+            "UserInfo": (context) => const UserDetels(),
+            "DeteilsScreen": (context) => const DeteilsScreen(),
           },
         );
       },

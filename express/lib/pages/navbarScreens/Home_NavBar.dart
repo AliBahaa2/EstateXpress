@@ -1,5 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:express/components/Category.dart';
+import 'package:express/components/listView%202.dart';
+import 'package:express/components/listView1.dart';
+import 'package:express/components/listView3.dart';
+import 'package:express/components/listView4.dart';
 import 'package:express/widgets/Drawer.dart';
 import 'package:express/components/customAppbar.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +17,7 @@ class NavBarHome extends StatefulWidget {
   State<NavBarHome> createState() => _NavBarHomeState();
 }
 
-class _NavBarHomeState extends State<NavBarHome> {
+class _NavBarHomeState extends State<NavBarHome> with TickerProviderStateMixin {
   final urlImages = [
     'lib/assets/images/CarouselSlider/Slider1.png',
     'lib/assets/images/CarouselSlider/Slider2.png',
@@ -21,56 +25,75 @@ class _NavBarHomeState extends State<NavBarHome> {
     'lib/assets/images/CarouselSlider/Slider4.png',
   ];
   int activeIndex = 0;
+  late TabController _tabController = TabController(length: 4, vsync: this);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(135, 226, 226, 226),
       drawer: const MyDrawer(),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Column(
-          children: [
-            const CustomAppBar(),
-            Column(
-              children: [
-                SizedBox(
-                  height: 1.h,
-                ),
-                //الصور الي تتنقل
-                CarouselSlider.builder(
-                  options: CarouselOptions(
-                    height: 22.h,
-                    autoPlay: true,
-                    enlargeCenterPage: true,
-                    autoPlayInterval: const Duration(seconds: 3),
-                    onPageChanged: (index, reason) => setState(
-                      () => activeIndex = index,
-                    ),
+      body: SingleChildScrollView(
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Column(
+            children: [
+              const CustomAppBar(),
+              Column(
+                children: [
+                  //الصور الي تتنقل
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      CarouselSlider.builder(
+                        options: CarouselOptions(
+                          height: 22.h,
+                          autoPlay: true,
+                          enlargeCenterPage: true,
+                          autoPlayInterval: const Duration(seconds: 3),
+                          onPageChanged: (index, reason) => setState(
+                            () => activeIndex = index,
+                          ),
+                        ),
+                        itemCount: urlImages.length,
+                        itemBuilder: (context, index, realIndex) {
+                          final urlImage = urlImages[index];
+                          return buildImage(urlImage, index);
+                        },
+                      ),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      //النقاط الي تتحرك وي الصورة
+                      buildIndicator(),
+                      const Divider(),
+                      SizedBox(
+                        height: 0.5.h,
+                      ),
+                      //فئات الاشياء الي يختارها المستخدم
+                      category(tabController: _tabController),
+
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                    ],
                   ),
-                  itemCount: urlImages.length,
-                  itemBuilder: (context, index, realIndex) {
-                    final urlImage = urlImages[index];
-                    return buildImage(urlImage, index);
-                  },
-                ),
-                SizedBox(
-                  height: 1.h,
-                ),
-                //النقاط الي تتحرك وي الصورة
-                buildIndicator(),
-                const Divider(),
-                SizedBox(
-                  height: 0.5.h,
-                ),
-                //فئات الاشياء الي يختارها المستخدم
-                const Categories(),
-                SizedBox(
-                  height: 1.h,
-                ),  
-                // المفروض هنا لست للمنشورات          
-              ],
-            ),
-          ],
+                  Container(
+                      height: 500,
+                      child: TabBarView(
+                          controller: _tabController,
+                          children: const [
+                            //  لست للمنشورات
+                            ListViewEstate1(),
+                            ListViewEstate2(),
+                            ListViewEstate3(),
+                            ListViewEstate4(),
+                          ]))
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/navBar.dart';
+import 'navbarScreens/Add_NavBar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-     bottomNavigationBar: NavBar(),
+      bottomNavigationBar: NavBar(),
     );
   }
 }
