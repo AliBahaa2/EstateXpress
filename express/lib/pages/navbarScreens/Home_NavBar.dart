@@ -80,16 +80,18 @@ class _NavBarHomeState extends State<NavBarHome> with TickerProviderStateMixin {
                     ],
                   ),
                   Container(
-                      height: 500,
-                      child: TabBarView(
-                          controller: _tabController,
-                          children: const [
-                            //  لست للمنشورات
-                            ListViewEstate1(),
-                            ListViewEstate2(),
-                            ListViewEstate3(),
-                            ListViewEstate4(),
-                          ]))
+                    height: 500,
+                    child: TabBarView(
+                      controller: _tabController,
+                      children: const [
+                        //  لست للمنشورات
+                        ListViewEstate1(),
+                        ListViewEstate2(),
+                        ListViewEstate3(),
+                        ListViewEstate4(),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ],

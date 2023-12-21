@@ -45,26 +45,34 @@ class _ListViewEstateState extends State<ListViewEstate3>
               return Padding(
                 padding: const EdgeInsets.only(right: 20, left: 20),
                 child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).pushNamed("DeteilsScreen");
-                  },
-                  child: Container(
+                  // onTap: () {
+                  //   Navigator.of(context).pushNamed("DeteilsScreen");
+                  // },
+                  child:Container(
                     margin: const EdgeInsets.only(
                       top: 15,
                     ),
-                    decoration: BoxDecoration(border: Border.all(width: 1.3)),
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1.3),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                     child: Column(
                       children: [
+                        //الصورة
                         Container(
-                            height: 100,
-                            width: double.infinity,
-                            //color: kPrimaryColor,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image:
-                                        NetworkImage(data[index]['url'] ?? " "),
-                                    fit: BoxFit.fill),
-                                border: Border(bottom: BorderSide(width: 2)))),
+                          height: 300,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(data[index]['url'] ?? " "),
+                              fit: BoxFit.fill,
+                            ),
+                            borderRadius:const BorderRadius.only(topLeft: Radius.circular(16),topRight: Radius.circular(16)),
+                            border: const Border(
+                              bottom: BorderSide(width: 2),
+                            ),
+                          ),
+                        ),
                         Container(
                           margin: const EdgeInsets.all(10),
                           child: Column(
@@ -73,35 +81,48 @@ class _ListViewEstateState extends State<ListViewEstate3>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
+                                  //العنوان
                                   Container(
                                     height: 30,
                                     padding: const EdgeInsets.only(
                                         right: 20, left: 20, top: 5, bottom: 5),
-
-                                    //height: 20,
-                                    decoration:
-                                        BoxDecoration(border: Border.all()),
                                     child: Text(
-                                        "${data[index]['city'] ?? " "} / ${data[index]['city2'] ?? " "} / ${data[index]['city3'] ?? " "}"),
+                                      "${data[index]['city'] ?? " "} / ${data[index]['city2'] ?? " "} / ${data[index]['city3'] ?? " "}",
+                                      style: const TextStyle(
+                                          fontFamily: 'tajawal',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
+                                  //السعر
                                   Container(
                                     height: 30,
                                     padding: const EdgeInsets.only(
                                         right: 20, left: 20, top: 5, bottom: 5),
-                                    decoration:
-                                        BoxDecoration(border: Border.all()),
-                                    child: Text(data[index]['price'] ?? " "),
+                                    child: Text(
+                                      data[index]['price'] ?? " ",
+                                      style: const TextStyle(
+                                          fontFamily: 'tajawal',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ],
                               ),
+                              //الوصف
                               Container(
                                 height: 30,
                                 width: double.infinity,
                                 margin: const EdgeInsets.only(top: 10),
                                 padding: const EdgeInsets.only(
                                     right: 20, left: 20, top: 5, bottom: 5),
-                                decoration: BoxDecoration(border: Border.all()),
-                                child: Text(data[index]['deteils'] ?? " "),
+                                child: Text(
+                                  data[index]['deteils'] ?? " ",
+                                  style: const TextStyle(
+                                      fontFamily: 'tajawal',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ],
                           ),
