@@ -102,6 +102,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
                 SizedBox(
                   height: 5.h,
                 ),
+                
                 const Divider(),
                 //اختر الفئى التي تريد اضافتها
                 Row(

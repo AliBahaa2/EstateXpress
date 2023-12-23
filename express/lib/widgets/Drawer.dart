@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
     super.key,
@@ -55,7 +56,8 @@ class MyDrawer extends StatelessWidget {
               textColor: Colors.grey,
               title: const Text(
                 'الاشعارات',
-                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontFamily: 'tajawal'),
               ),
               leading: const Icon(Icons.notifications_none),
               onTap: () {
@@ -68,48 +70,40 @@ class MyDrawer extends StatelessWidget {
               textColor: Colors.grey,
               title: const Text(
                 'مخطط الاراضي',
-                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontFamily: 'tajawal'),
               ),
-              leading:const Icon(Icons.map_rounded),
+              leading: const Icon(Icons.map_rounded),
               onTap: () {
                 Navigator.of(context).pushReplacementNamed("LandMaps");
               },
             ),
-           //معلومات المستخدم
-             ListTile(
-              iconColor: Colors.grey,
-              textColor: Colors.grey,
-              title:const Text(
-                'معلومات المستخدم',
-                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
-              ),
-              leading: Icon(Icons.supervised_user_circle_sharp),
-               onTap: (){
-                Navigator.of(context).pushReplacementNamed("UserInfo");
-               },
-            ),
-          //حول البرنامج
-             ListTile(
-              iconColor: Colors.grey,
-              textColor: Colors.grey,
-              title:const Text(
-                'حول البرنامج',
-                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
-              ),
-              leading:const Icon(Icons.info_outline),
-               onTap: (){
-                Navigator.of(context).pushReplacementNamed("About");
-               },
-            ),
-          //تسجيل الخروج
+            //معلومات المستخدم
+
+            //حول البرنامج
             ListTile(
               iconColor: Colors.grey,
               textColor: Colors.grey,
-              title:const Text(
-                'تسجيل الخروج',
-                style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'tajawal'),
+              title: const Text(
+                'حول البرنامج',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontFamily: 'tajawal'),
               ),
-              leading:const Icon(
+              leading: const Icon(Icons.info_outline),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed("About");
+              },
+            ),
+            //تسجيل الخروج
+            ListTile(
+              iconColor: Colors.grey,
+              textColor: Colors.grey,
+              title: const Text(
+                'تسجيل الخروج',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontFamily: 'tajawal'),
+              ),
+              leading: const Icon(
                 Icons.exit_to_app,
               ),
               onTap: () async {
@@ -123,17 +117,17 @@ class MyDrawer extends StatelessWidget {
               color: Colors.grey,
               endIndent: 30,
             ),
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 GestureDetector(
-                  onTap: ()async{
-                     final url = 'tel:+9647717978031';
-                     if(await canLaunchUrl(Uri.parse(url))){
+                  onTap: () async {
+                    final url = 'tel:+9647717978031';
+                    if (await canLaunchUrl(Uri.parse(url))) {
                       await launchUrl(Uri.parse(url));
-                     }
-                },
-                  child:const Icon(
+                    }
+                  },
+                  child: const Icon(
                     Icons.phone,
                     color: Colors.grey,
                   ),
@@ -144,28 +138,28 @@ class MyDrawer extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
-               GestureDetector(
-                onTap: ()async{
-                     final url = 'https://web.facebook.com/ali.liraqi.984';
-                     if(await canLaunchUrl(Uri.parse(url))){
+                GestureDetector(
+                  onTap: () async {
+                    final url = 'https://web.facebook.com/ali.liraqi.984';
+                    if (await canLaunchUrl(Uri.parse(url))) {
                       await launchUrl(Uri.parse(url));
-                     }
-                },
-                 child: const SocalIcon(
+                    }
+                  },
+                  child: const SocalIcon(
                     iconsrc: 'lib/assets/images/facebookhhh.png',
                   ),
-               ),
-               GestureDetector(
-                onTap: ()async{
-                     final url = 'https://www.instagram.com/pro.2_c/';
-                     if(await canLaunchUrl(Uri.parse(url))){
+                ),
+                GestureDetector(
+                  onTap: () async {
+                    final url = 'https://www.instagram.com/pro.2_c/';
+                    if (await canLaunchUrl(Uri.parse(url))) {
                       await launchUrl(Uri.parse(url));
-                     }
-                },
-                 child: const SocalIcon(
+                    }
+                  },
+                  child: const SocalIcon(
                     iconsrc: 'lib/assets/images/instttttt.png',
                   ),
-               ),
+                ),
               ],
             ),
             Divider(
