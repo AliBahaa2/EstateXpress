@@ -54,7 +54,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
   getImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? imagegallary =
-        await picker.pickImage(source: ImageSource.camera);
+        await picker.pickImage(source: ImageSource.gallery);
     if (imagegallary != null) {
       file = File(imagegallary!.path);
       var imagename = basename(imagegallary!.path);
@@ -102,6 +102,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
                 SizedBox(
                   height: 5.h,
                 ),
+                
                 const Divider(),
                 //اختر الفئى التي تريد اضافتها
                 Row(

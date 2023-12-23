@@ -13,6 +13,7 @@ class category extends StatelessWidget {
     return Align(
       alignment: Alignment.centerRight,
       child: TabBar(
+        
           unselectedLabelColor: Colors.black,
           indicatorSize: TabBarIndicatorSize.label,
           indicator: BoxDecoration(

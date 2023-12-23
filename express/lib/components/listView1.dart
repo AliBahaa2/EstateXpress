@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:express/widgets/loadindWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 
 class ListViewEstate1 extends StatefulWidget {
   const ListViewEstate1({super.key});
@@ -35,7 +36,7 @@ class _ListViewEstateState extends State<ListViewEstate1>
             child: loadindWidget(),
           )
         : ListView.builder(
-            physics: BouncingScrollPhysics(
+            physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics(),
             ),
             scrollDirection: Axis.vertical,
@@ -52,56 +53,89 @@ class _ListViewEstateState extends State<ListViewEstate1>
                     margin: const EdgeInsets.only(
                       top: 15,
                     ),
-                    decoration: BoxDecoration(border: Border.all(width: 1.3)),
+                    decoration: BoxDecoration(
+                      //  border: Border.all(width: 1.3),
+                      borderRadius: BorderRadius.circular(16),
+                      color: const Color.fromARGB(129, 217, 217, 217),
+                    ),
                     child: Column(
                       children: [
+                        //الصورة
                         Container(
-                            height: 100,
-                            width: double.infinity,
-                            //color: kPrimaryColor,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image:
-                                        NetworkImage(data[index]['url'] ?? " "),
-                                    fit: BoxFit.fill),
-                                border: Border(bottom: BorderSide(width: 2)))),
+                          height: 35.h,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(data[index]['url'] ?? " "),
+                              fit: BoxFit.fill,
+                            ),
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16)),
+                            border: const Border(
+                              bottom: BorderSide(width: 2),
+                            ),
+                          ),
+                        ),
                         Container(
-                          margin: const EdgeInsets.all(10),
+                          margin: const EdgeInsets.all(5),
                           child: Column(
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 children: [
+                                  //العنوان
                                   Container(
                                     height: 30,
                                     padding: const EdgeInsets.only(
                                         right: 20, left: 20, top: 5, bottom: 5),
-
-                                    //height: 20,
-                                    decoration:
-                                        BoxDecoration(border: Border.all()),
                                     child: Text(
-                                        "${data[index]['city'] ?? " "} / ${data[index]['city2'] ?? " "} / ${data[index]['city3'] ?? " "}"),
+                                      "${data[index]['city'] ?? " "} / ${data[index]['city2'] ?? " "} / ${data[index]['city3'] ?? " "}",
+                                      style: const TextStyle(
+                                          fontFamily: 'tajawal',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  //السعر
+                                  Container(
+                                    height: 30,
+                                    padding: const EdgeInsets.only(
+                                        right: 20, left: 20, top: 5, bottom: 5),
+                                    child: Text(
+                                      data[index]['price'] ?? " ",
+                                      style: const TextStyle(
+                                          fontFamily: 'tajawal',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                   Container(
-                                    height: 30,
-                                    padding: const EdgeInsets.only(
-                                        right: 20, left: 20, top: 5, bottom: 5),
-                                    decoration:
-                                        BoxDecoration(border: Border.all()),
-                                    child: Text(data[index]['price'] ?? " "),
+                                    child: IconButton(
+                                      iconSize: 40.0,
+                                      alignment: Alignment.center,
+                                      onPressed: () {},
+                                      icon: const Icon(Icons.favorite,
+                                          color: Colors.red),
+                                    ),
                                   ),
                                 ],
                               ),
+                              //الوصف
                               Container(
                                 height: 30,
                                 width: double.infinity,
                                 margin: const EdgeInsets.only(top: 10),
                                 padding: const EdgeInsets.only(
                                     right: 20, left: 20, top: 5, bottom: 5),
-                                decoration: BoxDecoration(border: Border.all()),
-                                child: Text(data[index]['deteils'] ?? " "),
+                                child: Text(
+                                  data[index]['deteils'] ?? " ",
+                                  style: const TextStyle(
+                                      overflow: TextOverflow.ellipsis,
+                                      fontFamily: 'tajawal',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ],
                           ),

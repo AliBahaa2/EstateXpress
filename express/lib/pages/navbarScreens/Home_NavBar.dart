@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:express/components/Category.dart';
-import 'package:express/components/listView%202.dart';
+import 'package:express/components/listView2.dart';
 import 'package:express/components/listView1.dart';
 import 'package:express/components/listView3.dart';
 import 'package:express/components/listView4.dart';
@@ -80,16 +80,19 @@ class _NavBarHomeState extends State<NavBarHome> with TickerProviderStateMixin {
                     ],
                   ),
                   Container(
-                      height: 500,
-                      child: TabBarView(
-                          controller: _tabController,
-                          children: const [
-                            //  لست للمنشورات
-                            ListViewEstate1(),
-                            ListViewEstate2(),
-                            ListViewEstate3(),
-                            ListViewEstate4(),
-                          ]))
+                    height: 500,
+                    child: TabBarView(
+                      
+                      controller: _tabController,
+                      children: const [
+                        //  لست للمنشورات
+                        ListViewEstate1(),
+                        ListViewEstate2(),
+                        ListViewEstate3(),
+                        ListViewEstate4(),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ],

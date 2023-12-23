@@ -2,23 +2,25 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:express/widgets/loadindWidget.dart';
 import 'package:flutter/material.dart';
 
-class ListViewEstate4 extends StatefulWidget {
-  const ListViewEstate4({super.key});
+class ListViewEstate2 extends StatefulWidget {
+  const ListViewEstate2({super.key});
 
   @override
-  State<ListViewEstate4> createState() => _ListViewEstateState();
+  State<ListViewEstate2> createState() => _ListViewEstateState();
 }
 
-class _ListViewEstateState extends State<ListViewEstate4>
+class _ListViewEstateState extends State<ListViewEstate2>
     with SingleTickerProviderStateMixin {
   List data = [];
 
   getData() async {
-    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-        .collection('estatedb')
-        .where('type', isEqualTo: "ايجار")
-        .get();
-    data.addAll(querySnapshot.docs);
+    CollectionReference estate =
+        FirebaseFirestore.instance.collection("estatedb");
+    QuerySnapshot querySnapshot =
+        await estate.where("type", isEqualTo: "شقه").get();
+    querySnapshot.docs.forEach((element) {
+      data.add(element);
+    });
     setState(() {});
   }
 
