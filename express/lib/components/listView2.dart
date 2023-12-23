@@ -47,16 +47,17 @@ class _ListViewEstateState extends State<ListViewEstate2>
               return Padding(
                 padding: const EdgeInsets.only(right: 20, left: 20),
                 child: InkWell(
-                  // onTap: () {
-                  //   Navigator.of(context).pushNamed("DeteilsScreen");
-                  // },
-                  child:Container(
+                  onTap: () {
+                    Navigator.of(context).pushNamed("DeteilsScreen");
+                  },
+                  child: Container(
                     margin: const EdgeInsets.only(
                       top: 15,
                     ),
                     decoration: BoxDecoration(
-                      border: Border.all(width: 1.3),
+                      // border: Border.all(width: 1.3),
                       borderRadius: BorderRadius.circular(16),
+                      color: Color.fromARGB(129, 217, 217, 217),
                     ),
                     child: Column(
                       children: [
@@ -69,7 +70,9 @@ class _ListViewEstateState extends State<ListViewEstate2>
                               image: NetworkImage(data[index]['url'] ?? " "),
                               fit: BoxFit.fill,
                             ),
-                            borderRadius:const BorderRadius.only(topLeft: Radius.circular(16),topRight: Radius.circular(16)),
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16)),
                             border: const Border(
                               bottom: BorderSide(width: 2),
                             ),
@@ -80,8 +83,6 @@ class _ListViewEstateState extends State<ListViewEstate2>
                           child: Column(
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   //العنوان
                                   Container(
@@ -96,6 +97,7 @@ class _ListViewEstateState extends State<ListViewEstate2>
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
+                                  const Spacer(),
                                   //السعر
                                   Container(
                                     height: 30,
@@ -107,6 +109,29 @@ class _ListViewEstateState extends State<ListViewEstate2>
                                           fontFamily: 'tajawal',
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  //السعر
+                                  Container(
+                                    height: 30,
+                                    padding: const EdgeInsets.only(
+                                        right: 20, left: 20, top: 5, bottom: 5),
+                                    child: Text(
+                                      data[index]['price'] ?? " ",
+                                      style: const TextStyle(
+                                          fontFamily: 'tajawal',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: IconButton(
+                                      iconSize: 40.0,
+                                      alignment: Alignment.center,
+                                      onPressed: () {},
+                                      icon: const Icon(Icons.favorite,
+                                          color: Colors.red),
                                     ),
                                   ),
                                 ],
@@ -121,9 +146,11 @@ class _ListViewEstateState extends State<ListViewEstate2>
                                 child: Text(
                                   data[index]['deteils'] ?? " ",
                                   style: const TextStyle(
-                                      fontFamily: 'tajawal',
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold),
+                                    overflow: TextOverflow.ellipsis,
+                                    fontFamily: 'tajawal',
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ],
@@ -137,7 +164,4 @@ class _ListViewEstateState extends State<ListViewEstate2>
             },
           );
   }
-
-
-
 }
