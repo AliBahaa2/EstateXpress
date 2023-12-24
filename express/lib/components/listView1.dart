@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:express/pages/deteilsScreen.dart';
+import 'package:express/widgets/favbotton.dart';
 import 'package:express/widgets/loadindWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
@@ -47,7 +49,11 @@ class _ListViewEstateState extends State<ListViewEstate1>
                 padding: const EdgeInsets.only(right: 20, left: 20),
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed("DeteilsScreen");
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DeteilsScreen(
+                        data: data[index].data(),
+                      ),
+                    ));
                   },
                   child: Container(
                     margin: const EdgeInsets.only(
@@ -111,13 +117,16 @@ class _ListViewEstateState extends State<ListViewEstate1>
                                     ),
                                   ),
                                   Container(
-                                    child: IconButton(
-                                      iconSize: 40.0,
-                                      alignment: Alignment.center,
-                                      onPressed: () {},
-                                      icon: const Icon(Icons.favorite,
-                                          color: Colors.red),
-                                    ),
+                                    margin:
+                                        const EdgeInsets.only(top: 5, right: 5),
+                                    height: 30,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Colors.white60),
+                                    child: LikeButton(
+                                        idd: data[index].reference.id,
+                                        dataa: data[index].data()),
                                   ),
                                 ],
                               ),
@@ -145,7 +154,6 @@ class _ListViewEstateState extends State<ListViewEstate1>
                   ),
                 ),
               );
-           
             },
           );
   }

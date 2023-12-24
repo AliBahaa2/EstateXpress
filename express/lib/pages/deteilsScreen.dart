@@ -1,16 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DeteilsScreen extends StatefulWidget {
-  const DeteilsScreen({super.key});
+  final data;
+  const DeteilsScreen({super.key, this.data});
 
   @override
   State<DeteilsScreen> createState() => _DeteilsScreenState();
 }
 
 class _DeteilsScreenState extends State<DeteilsScreen> {
-  List data = [];
+  void _launchURL(url) async {
+    if (!await launch(url)) throw 'Could not launch $url';
+  }
+
+  var data;
 
   getData() async {
     QuerySnapshot querySnapshot =
@@ -28,15 +34,15 @@ class _DeteilsScreenState extends State<DeteilsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          'صفحة التفاصيل',
-          style: TextStyle(
-            fontFamily: 'cairo',
-            fontSize: 5.h,
-          ),
-        ),
-      ),
+      body: Container(
+          height: 35.h,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(widget.data['url'] ?? " "),
+              fit: BoxFit.fill,
+            ),
+          )),
     );
   }
 }
