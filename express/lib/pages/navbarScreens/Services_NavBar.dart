@@ -143,7 +143,7 @@ class NavBarServices extends StatelessWidget {
                               Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Cleaning()),
+                                  builder: (context) => const NoCompany()),
                             );
                           },
                           child: SizedBox(
@@ -185,7 +185,7 @@ class NavBarServices extends StatelessWidget {
                               Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Cleaning()),
+                                  builder: (context) => const NoCompany()),
                             );
                           },
                           child: SizedBox(
@@ -232,7 +232,7 @@ class NavBarServices extends StatelessWidget {
                               Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Cleaning()),
+                                  builder: (context) => const NoCompany()),
                             );
                           },
                           child: SizedBox(
@@ -285,7 +285,7 @@ class NavBarServices extends StatelessWidget {
                               Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Cleaning()),
+                                  builder: (context) => const NoCompany()),
                             );
                           },
                           child: SizedBox(

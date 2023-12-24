@@ -48,7 +48,7 @@ class _NavBarHomeState extends State<NavBarHome> with TickerProviderStateMixin {
                       ),
                       CarouselSlider.builder(
                         options: CarouselOptions(
-                          height: 22.h,
+                          height: 28.h,
                           autoPlay: true,
                           enlargeCenterPage: true,
                           autoPlayInterval: const Duration(seconds: 3),
