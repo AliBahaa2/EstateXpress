@@ -65,119 +65,139 @@ class _DeteilsScreenState extends State<DeteilsScreen> {
               borderRadius: BorderRadius.circular(16),
               color: const Color.fromARGB(129, 217, 217, 217),
             ),
-            child: Column(children: [
-              //الصورة
-              Container(
-                height: 35.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(widget.data['url'] ?? " "),
-                    fit: BoxFit.fill,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(16)),
-                  border: const Border(
-                    bottom: BorderSide(width: 2),
+            child: Column(
+              children: [
+                //الصورة
+                Container(
+                  height: 35.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(widget.data['url'] ?? " "),
+                      fit: BoxFit.fill,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        topRight: Radius.circular(16)),
+                    border: const Border(
+                      bottom: BorderSide(width: 2),
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 15),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        //العنوان
-                        Container(
-                          margin: EdgeInsets.only(right: 20),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(16)
-                          ),
-                          height: 30,
-                          padding: const EdgeInsets.only(
-                              right: 20, left: 20, top: 5, bottom: 5),
-                          child: Text(
-                            "${widget.data['city'] ?? " "} / ${widget.data['city2'] ?? " "} / ${widget.data['city3'] ?? " "}",
-                            style: const TextStyle(
-                                fontFamily: 'tajawal',
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        const Spacer(),
-                        //السعر
-                        Container(
-                           margin:const EdgeInsets.only(left: 20),
+                Container(
+                  margin: const EdgeInsets.only(top: 15),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          //العنوان
+                          Container(
+                            margin: EdgeInsets.only(right: 20),
                             decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(16)
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(16)),
+                            height: 30,
+                            padding: const EdgeInsets.only(
+                                right: 20, left: 20, top: 5, bottom: 5),
+                            child: Text(
+                              "${widget.data['city'] ?? " "} / ${widget.data['city2'] ?? " "} / ${widget.data['city3'] ?? " "}",
+                              style: const TextStyle(
+                                  fontFamily: 'tajawal',
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
-                          height: 30,
-                          padding: const EdgeInsets.only(
-                              right: 20, left: 20, top: 5, bottom: 5),
+                          const Spacer(),
+                          //السعر
+                          Container(
+                            margin: const EdgeInsets.only(left: 20),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(16)),
+                            height: 30,
+                            padding: const EdgeInsets.only(
+                                right: 20, left: 20, top: 5, bottom: 5),
+                            child: Text(
+                              widget.data['price'] ?? " ",
+                              style: const TextStyle(
+                                  fontFamily: 'tajawal',
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 4.h,
+                      ),
+                      //التفاصيل
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16)),
+                        height: 300,
+                        width: double.infinity,
+                        margin:
+                            const EdgeInsets.only(top: 10, left: 15, right: 15),
+                        padding: const EdgeInsets.only(
+                            right: 20, left: 20, top: 5, bottom: 5),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            widget.data['price'] ?? " ",
+                            widget.data['deteils'] ?? " ",
                             style: const TextStyle(
                                 fontFamily: 'tajawal',
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                //اتصال
+                GestureDetector(
+                  onTap: () async {
+                    final url = 'tel:' + widget.data['phone'] ?? " ";
+                    if (await canLaunchUrl(Uri.parse(url))) {
+                      await launchUrl(Uri.parse(url));
+                    }
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    width: 30.w,
+                    height: 5.h,
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.phone,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          'اتصال',
+                          style: TextStyle(
+                              fontFamily: 'tajawal',
+                              fontSize: 20,
+                              color: Colors.white),
+                        )
                       ],
                     ),
-                    SizedBox(height: 4.h,),
-                    //الوصف
-                    Container(
-                      height: 30,
-                      width: double.infinity,
-                      margin: const EdgeInsets.only(top: 10),
-                      padding: const EdgeInsets.only(
-                          right: 20, left: 20, top: 5, bottom: 5),
-                      child: Text(
-                        widget.data['deteils'] ?? " ",
-                        style: const TextStyle(
-                            fontFamily: 'tajawal',
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-              const Spacer(),
-              //اتصال
-              Container(
-                margin: const EdgeInsets.only(bottom: 10),
-                width: 30.w,
-                height: 5.h,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(16),
+                const SizedBox(
+                  height: 15,
                 ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.phone,
-                      color: Colors.white,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'اتصال',
-                      style: TextStyle(
-                          fontFamily: 'tajawal',
-                          fontSize: 20,
-                          color: Colors.white),
-                    )
-                  ],
-                ),
-              ),
-            ]),
+              ],
+            ),
           ),
         ),
       ),

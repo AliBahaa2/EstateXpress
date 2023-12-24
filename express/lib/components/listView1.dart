@@ -57,7 +57,7 @@ class _ListViewEstateState extends State<ListViewEstate1>
                   },
                   child: Container(
                     margin: const EdgeInsets.only(
-                      top: 15,
+                      top: 8,
                     ),
                     decoration: BoxDecoration(
                       //  border: Border.all(width: 1.3),

@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:express/pages/deteilsScreen.dart';
+import 'package:express/widgets/favbotton.dart';
 import 'package:express/widgets/loadindWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 
 class ListViewEstate2 extends StatefulWidget {
   const ListViewEstate2({super.key});
@@ -14,13 +17,11 @@ class _ListViewEstateState extends State<ListViewEstate2>
   List data = [];
 
   getData() async {
-    CollectionReference estate =
-        FirebaseFirestore.instance.collection("estatedb");
-    QuerySnapshot querySnapshot =
-        await estate.where("type", isEqualTo: "شقه").get();
-    querySnapshot.docs.forEach((element) {
-      data.add(element);
-    });
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('estatedb')
+        .where('type', isEqualTo: "شقه")
+        .get();
+    data.addAll(querySnapshot.docs);
     setState(() {});
   }
 
@@ -37,7 +38,7 @@ class _ListViewEstateState extends State<ListViewEstate2>
             child: loadindWidget(),
           )
         : ListView.builder(
-            physics: BouncingScrollPhysics(
+            physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics(),
             ),
             scrollDirection: Axis.vertical,
@@ -48,22 +49,26 @@ class _ListViewEstateState extends State<ListViewEstate2>
                 padding: const EdgeInsets.only(right: 20, left: 20),
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed("DeteilsScreen");
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DeteilsScreen(
+                        data: data[index].data(),
+                      ),
+                    ));
                   },
                   child: Container(
                     margin: const EdgeInsets.only(
-                      top: 15,
+                      top: 8,
                     ),
                     decoration: BoxDecoration(
-                      // border: Border.all(width: 1.3),
+                      //  border: Border.all(width: 1.3),
                       borderRadius: BorderRadius.circular(16),
-                      color: Color.fromARGB(129, 217, 217, 217),
+                      color: const Color.fromARGB(129, 217, 217, 217),
                     ),
                     child: Column(
                       children: [
                         //الصورة
                         Container(
-                          height: 300,
+                          height: 35.h,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             image: DecorationImage(
@@ -79,7 +84,7 @@ class _ListViewEstateState extends State<ListViewEstate2>
                           ),
                         ),
                         Container(
-                          margin: const EdgeInsets.all(10),
+                          margin: const EdgeInsets.all(5),
                           child: Column(
                             children: [
                               Row(
@@ -111,28 +116,17 @@ class _ListViewEstateState extends State<ListViewEstate2>
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  const Spacer(),
-                                  //السعر
                                   Container(
+                                    margin:
+                                        const EdgeInsets.only(top: 5, right: 5),
                                     height: 30,
-                                    padding: const EdgeInsets.only(
-                                        right: 20, left: 20, top: 5, bottom: 5),
-                                    child: Text(
-                                      data[index]['price'] ?? " ",
-                                      style: const TextStyle(
-                                          fontFamily: 'tajawal',
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                  Container(
-                                    child: IconButton(
-                                      iconSize: 40.0,
-                                      alignment: Alignment.center,
-                                      onPressed: () {},
-                                      icon: const Icon(Icons.favorite,
-                                          color: Colors.red),
-                                    ),
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Colors.white60),
+                                    child: LikeButton(
+                                        idd: data[index].reference.id,
+                                        dataa: data[index].data()),
                                   ),
                                 ],
                               ),
@@ -146,11 +140,10 @@ class _ListViewEstateState extends State<ListViewEstate2>
                                 child: Text(
                                   data[index]['deteils'] ?? " ",
                                   style: const TextStyle(
-                                    overflow: TextOverflow.ellipsis,
-                                    fontFamily: 'tajawal',
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                      overflow: TextOverflow.ellipsis,
+                                      fontFamily: 'tajawal',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ],
@@ -159,6 +152,8 @@ class _ListViewEstateState extends State<ListViewEstate2>
                       ],
                     ),
                   ),
+                
+                
                 ),
               );
             },
