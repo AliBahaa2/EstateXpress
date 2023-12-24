@@ -23,6 +23,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
   final city2Controller = TextEditingController();
   final city3Controller = TextEditingController();
 
+  final phoneController = TextEditingController();
   final priceController = TextEditingController();
   final detailsController = TextEditingController();
   String dropdownvalue = 'بيت';
@@ -36,6 +37,7 @@ class _NavBarSettingState extends State<NavBarSetting> {
           'city': cityController.text,
           'city2': city2Controller.text,
           'city3': city3Controller.text,
+          'phone': phoneController.text,
           'price': priceController.text,
           'deteils': detailsController.text,
           'type': dropdownvalue ?? "none",
@@ -289,6 +291,51 @@ class _NavBarSettingState extends State<NavBarSetting> {
                   ),
                 ),
                 const Divider(),
+                
+                //رقم الهاتف
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.phone,
+                      color: Colors.blue,
+                    ),
+                    Text(
+                      'رقم الهاتف',
+                      style: TextStyle(
+                        fontSize: 20.dp,
+                        fontFamily: 'tajawal',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+               
+                 SizedBox(
+                  height: 1.h,
+                ),
+                //ادخال رقم الهاتف
+                TextFormField(
+                  controller: phoneController,
+                  validator: (val) {
+                    if (val == "") {
+                      return "can not be empty";
+                    }
+                  },
+                  keyboardType: TextInputType.number,
+                  textDirection: TextDirection.rtl,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'رقم الهاتف',
+                    labelStyle: TextStyle(
+                      color: Color.fromARGB(255, 131, 167, 185),
+                      fontFamily: 'Tajawal',
+                      fontWeight: FontWeight.bold,
+                    ),
+                    fillColor: Color.fromARGB(28, 255, 255, 255),
+                    filled: true,
+                  ),
+                ),
+                SizedBox(height: 1.h,),
                 //السعر
                 Row(
                   children: [
@@ -394,8 +441,10 @@ class _NavBarSettingState extends State<NavBarSetting> {
                         ),
                       ),
                     ),
+                    
                   ),
                 ),
+                SizedBox(height: 3.h,)
               ],
             ),
           ),

@@ -129,8 +129,9 @@ class _NavBarFavoretState extends State<NavBarFavoret>
                                               BorderRadius.circular(10),
                                           color: Colors.white60),
                                       child: LikeButton(
-                                          idd: data[index].reference.id,
-                                          dataa: data[index].data()),
+                                        idd: data[index].reference.id,
+                                        dataa: data[index].data(),
+                                      ),
                                     ),
                                   ],
                                 ),
