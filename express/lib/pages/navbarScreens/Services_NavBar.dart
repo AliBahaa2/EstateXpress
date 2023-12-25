@@ -1,3 +1,6 @@
+import 'package:express/pages/services_page.dart/cleaning.dart';
+import 'package:express/pages/services_page.dart/curtains.dart';
+import 'package:express/pages/services_page.dart/nocompany.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 
@@ -47,14 +50,20 @@ class NavBarServices extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Curtains()),
+                            );
+                          },
                           child: SizedBox(
-                            height: 20.h,
-                            width: 30.w,
+                            height: 25.h,
+                            width: 35.w,
                             child: Stack(
                               children: [
                                 Image(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                     'lib/assets/images/curtains_project2.jpg',
                                   ),
                                   height: 40.h,
@@ -62,35 +71,41 @@ class NavBarServices extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                                 Container(
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.4),
+                                      borderRadius: BorderRadius.circular(16)),
+                                  child: const Text(
                                     'ستائر',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: 'Tajawal',
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.4),
-                                      borderRadius: BorderRadius.circular(13)),
                                 ),
                               ],
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: 5.w,
+                          width: 7.w,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const NoCompany()),
+                            );
+                          },
                           child: SizedBox(
-                            height: 20.h,
-                            width: 30.w,
+                            height: 25.h,
+                            width: 35.w,
                             child: Stack(
                               children: [
                                 Image(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                     'lib/assets/images/swin_project.webp',
                                   ),
                                   height: 100.h,
@@ -98,18 +113,18 @@ class NavBarServices extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                                 Container(
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.4),
+                                      borderRadius: BorderRadius.circular(13)),
+                                  child: const Text(
                                     'حمام سباحه',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: 'Tajawal',
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.4),
-                                      borderRadius: BorderRadius.circular(13)),
                                 ),
                               ],
                             ),
@@ -124,14 +139,20 @@ class NavBarServices extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const NoCompany()),
+                            );
+                          },
                           child: SizedBox(
-                            height: 20.h,
-                            width: 30.w,
+                            height: 25.h,
+                            width: 35.w,
                             child: Stack(
                               children: [
                                 Image(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                     'lib/assets/images/server_project.jpg',
                                   ),
                                   height: 90.h,
@@ -139,35 +160,41 @@ class NavBarServices extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                                 Container(
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.4),
+                                      borderRadius: BorderRadius.circular(13)),
+                                  child: const Text(
                                     'خدمات نقل',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: 'Tajawal',
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.4),
-                                      borderRadius: BorderRadius.circular(13)),
                                 ),
                               ],
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: 5.w,
+                          width: 7.w,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const NoCompany()),
+                            );
+                          },
                           child: SizedBox(
-                            height: 20.h,
-                            width: 30.w,
+                            height: 25.h,
+                            width: 35.w,
                             child: Stack(
                               children: [
                                 Image(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                     'lib/assets/images/enger_project.jpg',
                                   ),
                                   height: 90.h,
@@ -175,18 +202,18 @@ class NavBarServices extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                                 Container(
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.4),
+                                      borderRadius: BorderRadius.circular(13)),
+                                  child: const Text(
                                     'شركه هندسية',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: 'Tajawal',
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.4),
-                                      borderRadius: BorderRadius.circular(13)),
                                 ),
                               ],
                             ),
@@ -201,14 +228,20 @@ class NavBarServices extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const NoCompany()),
+                            );
+                          },
                           child: SizedBox(
-                            height: 20.h,
-                            width: 30.w,
+                            height: 25.h,
+                            width: 35.w,
                             child: Stack(
                               children: [
                                 Image(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                     'lib/assets/images/ggff.jpg',
                                   ),
                                   height: 90.h,
@@ -227,35 +260,41 @@ class NavBarServices extends StatelessWidget {
                                 //   ),
                                 // ),
                                 Container(
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.4),
+                                      borderRadius: BorderRadius.circular(13)),
+                                  child: const Text(
                                     'اثاث',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: 'Tajawal',
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.4),
-                                      borderRadius: BorderRadius.circular(13)),
                                 ),
                               ],
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: 5.w,
+                          width: 7.w,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const NoCompany()),
+                            );
+                          },
                           child: SizedBox(
-                            height: 20.h,
-                            width: 30.w,
+                            height: 25.h,
+                            width: 35.w,
                             child: Stack(
                               children: [
                                 Image(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                     'lib/assets/images/lay_project.jpg',
                                   ),
                                   height: 90.h,
@@ -263,18 +302,18 @@ class NavBarServices extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                                 Container(
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.4),
+                                      borderRadius: BorderRadius.circular(13)),
+                                  child: const Text(
                                     'محامون',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: 'Tajawal',
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.4),
-                                      borderRadius: BorderRadius.circular(13)),
                                 ),
                               ],
                             ),
@@ -289,63 +328,62 @@ class NavBarServices extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Cleaning()),
+                            );
+                          },
                           child: SizedBox(
-                            height: 20.h,
-                            width: 30.w,
+                            height: 25.h,
+                            width: 35.w,
                             child: Stack(
                               children: [
                                 Image(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                     'lib/assets/images/remove_project.jpg',
                                   ),
                                   height: 90.h,
                                   width: 60.h,
                                   fit: BoxFit.cover,
                                 ),
-                                // Container(
-                                //   padding: EdgeInsets.all(6),
-                                //   alignment: Alignment.center,
-                                //   constraints:
-                                //       BoxConstraints(minHeight: 1, maxHeight: 2),
-                                //   child: Icon(
-                                //     Icons.delete,
-                                //     color: Colors.white,
-                                //     size: 10.w,
-                                //   ),
-                                // ),
                                 Container(
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   alignment: Alignment.center,
-                                  child: Text(
-                                    'ازالة النفايات',
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.4),
+                                      borderRadius: BorderRadius.circular(13)),
+                                  child: const Text(
+                                    'خدمة التنظيف',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: 'Tajawal',
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.4),
-                                      borderRadius: BorderRadius.circular(13)),
                                 ),
                               ],
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: 5.w,
+                          width: 7.w,
                         ),
                         GestureDetector(
                           onTap: () {
-                            print('object');
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Cleaning()),
+                            );
                           },
                           child: SizedBox(
-                            height: 20.h,
-                            width: 30.w,
+                            height: 25.h,
+                            width: 35.w,
                             child: Stack(
                               children: [
                                 Image(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                     'lib/assets/images/Services/dye2.jpg',
                                   ),
                                   height: 90.h,
@@ -358,16 +396,16 @@ class NavBarServices extends StatelessWidget {
                                 Container(
                                   padding: EdgeInsets.all(10),
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.4),
+                                      borderRadius: BorderRadius.circular(13)),
+                                  child: const Text(
                                     'صبغ',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontFamily: 'Tajawal',
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.4),
-                                      borderRadius: BorderRadius.circular(13)),
                                 ),
                               ],
                             ),

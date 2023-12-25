@@ -15,6 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   bool isLoading = false;
+  bool showPass = true;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               SizedBox(height: 30.dp),
                               //ادخال البريد الالكتروني
                               TextFormField(
+                                keyboardType: TextInputType.emailAddress,
                                 controller: email,
                                 textDirection: TextDirection.rtl,
                                 decoration: const InputDecoration(
@@ -76,12 +78,20 @@ class _LoginScreenState extends State<LoginScreen> {
                               SizedBox(height: 3.h),
                               //ادخال كلمة المرور
                               TextFormField(
+                                obscureText:  showPass,
                                 controller: password,
                                 textDirection: TextDirection.rtl,
-                                decoration: const InputDecoration(
-                                  suffixIcon: Icon(Icons.remove_red_eye),
+                                decoration:  InputDecoration(
+                                  suffixIcon: IconButton(
+                                    icon:const Icon(Icons.remove_red_eye),
+                                    onPressed: (){
+                                     setState(() {
+                                        showPass = !showPass;
+                                     });
+                                    },
+                                  ),
                                   labelText: 'كلمة المرور',
-                                  labelStyle: TextStyle(
+                                  labelStyle:const TextStyle(
                                     color: Color.fromARGB(255, 131, 167, 185),
                                     fontFamily: 'Tajawal',
                                     fontWeight: FontWeight.bold,

@@ -1,3 +1,5 @@
+
+import 'package:express/pages/googleMap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:express/components/MyColors.dart';
@@ -82,7 +84,13 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder:(context){
+                      return const GoogleMap();
+                    })
+                  );
+                },
                 icon: const Icon(Icons.map_outlined),
               ),
             ),
