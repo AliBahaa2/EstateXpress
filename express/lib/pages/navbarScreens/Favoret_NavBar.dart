@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:express/pages/deteilsScreen.dart';
 import 'package:express/widgets/favbotton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
@@ -53,9 +54,13 @@ class _NavBarFavoretState extends State<NavBarFavoret>
                     return Padding(
                       padding: const EdgeInsets.only(right: 20, left: 20),
                       child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).pushNamed("DeteilsScreen");
-                        },
+                          onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DeteilsScreen(
+                        data: data[index].data(),
+                      ),
+                    ));
+                  },
                         child: Container(
                           margin: const EdgeInsets.only(
                             top: 15,
